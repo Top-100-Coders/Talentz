@@ -14,8 +14,21 @@ The participants are required to Take use of the provided BAP and create a good 
 
 Now after implementing the api's the participants are required to build UI inteface for displaying data and user profile data.
 
+# Resources
 
+For understanding all API endpoints.
+    - https://developers.becknprotocol.io/docs/local-retail-specification/api-reference/
 
+**BAP RUNNING PARTS**
+
+1. Beckn Protocol Server :- 
+    this repo is used for running docker containers of mongo, redis and rabbitmq these are the docker containers which are required for
+    running the protocol server.
+    **In order to run the protocol server read the README.md file and follow the instructions**
+
+    - https://github.com/beckn/protocol-server
+
+2. 
 This is the website for viewing the example of Beckn Protocol
 https://experience-guide.becknprotocol.io/
 
