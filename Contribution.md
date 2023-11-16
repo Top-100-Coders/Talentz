@@ -6,6 +6,63 @@ The participants are required to build their own BPP and also a BAP and integrat
 
 # Resources
 
+**The becknified json file**
+
+```json
+{
+    "context": {
+        "domain": "dsep:student-connect",
+        "action": "search",
+        "location": {
+            "country": {
+                "name": "India",
+                "code": "IND"
+            },
+            "city": {
+                "name": "Bangalore",
+                "code": "std:080"
+            }
+        },
+        "version": "1.1.0",
+        "bap_id": "ps-bap-network.becknprotocol.io",
+        "bap_uri": "https://ps-bap-network.becknprotocol.io/",
+        "bpp_id": "mulearn-bpp",
+        "bpp_uri": "https://network-beckn.loca.lt",
+        "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+        "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+        "timestamp": "2023-07-16T04:41:16Z"
+    },
+    "message": {
+        "intent": {
+            "item": {
+                "tags": [
+                    {
+                        "descriptor": {
+                            "name": "skills"
+                        },
+                        "list": [
+                            {
+                                "value": "Agile"
+                            },
+                            {
+                                "value": "Figma"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+
+```
+
+**Mulearn Endpoints**
+
+https://mulearn.org/api/v1/get-log/list-ig/ (get method)
+https://mulearn.org/api/v1/get-log/list-ig-top100/ (params:ig_name)
+
+
 For understanding all API endpoints.
     - https://developers.becknprotocol.io/docs/local-retail-specification/api-reference/
 
