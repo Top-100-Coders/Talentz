@@ -1,21 +1,8 @@
 # Beckn 
 
-## Level 1
-
 ### Getting Started
 
-The participants are required to Take use of the provided BAP and create a good UI with it. 
-
-1. The First step is to download the `hackathonApisFinal.json` file.
-2. Import this file into Postman or Hoppscotch or anything else to manage all the API's
-3. Now try running the api you will be getting the data in json format.
-
-Now after implementing the api's the participants are required to build UI inteface for displaying data and user profile data.
-
-
-## Level 2 
-
-Creating your own BAP and a BPP for solving a real world problem.
+The participants are required to build their own BPP and also a BAP and integrate this with the mulearn api,resulting in a application with a stunning 
 
 # Resources
 
