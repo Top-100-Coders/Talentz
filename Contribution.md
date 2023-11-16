@@ -1,12 +1,10 @@
-# Beckn In Depth
-
-## Overview
-
-The participants are required to Take use of the provided BAP and create a good UI with it. 
+# Beckn 
 
 ## Level 1
 
 ### Getting Started
+
+The participants are required to Take use of the provided BAP and create a good UI with it. 
 
 1. The First step is to download the `hackathonApisFinal.json` file.
 2. Import this file into Postman or Hoppscotch or anything else to manage all the API's
@@ -36,7 +34,6 @@ The Current Implementation Of The BPP used in the hackathon
 
     - https://github.com/beckn/protocol-server
 
-2. 
-This is the website for viewing the example of Beckn Protocol
-https://experience-guide.becknprotocol.io/
+2. This is the website for viewing the example of Beckn Protocol
+    - https://experience-guide.becknprotocol.io/
 
