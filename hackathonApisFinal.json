@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "0c1029f4-7d61-4be2-9d8f-32d454062e65",
+		"name": "hackathonApis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31194682"
+	},
+	"item": [
+		{
+			"name": "Talent Discovery",
+			"item": [
+				{
+					"name": "Search",
+					"item": [
+						{
+							"name": "Search with name",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"context\": {\n        \"domain\": \"{{onest_expert_connect}}\",\n        \"action\": \"search\",\n        \"version\": \"{{core_version}}\",\n        \"bap_id\": \"{{bap_id}}\",\n        \"bap_uri\": \"{{bap_uri}}\",\n        \"location\": {\n            \"country\": {\n                \"name\": \"India\",\n                \"code\": \"IND\"\n            },\n            \"city\": {\n                \"name\": \"Bangalore\",\n                \"code\": \"std:080\"\n            }\n        },\n        \"timestamp\": \"2022-12-15T15:38:16.226Z\",\n        \"message_id\": \"64109204-bdff-4af6-a76b-5a33f8aa8675\",\n        \"transaction_id\": \"bdb5ba09-2241-4f00-b434-73466cd06228\"\n    },\n    \"message\": {\n        \"intent\": {\n            \"item\": {\n                \"descriptor\": {\n                    \"name\": \"man\"\n                }\n            }\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/search"
+							},
+							"response": [
+								{
+									"name": "Search",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"context\": {\n        \"domain\": \"nic2004:74910\",\n        \"country\": \"IND\",\n        \"city\": \"std:080\",\n        \"action\": \"search\",\n        \"core_version\": \"0.5.0\",\n        \"bap_id\": \"nic2004:74910.BPP\",\n        \"bap_uri\": \"https://18bhai62x2.execute-api.ap-south-1.amazonaws.com/dev/\",\n        \"transaction_id\": \"12391830183\",\n        \"message_id\": \"search-message-id-\",\n        \"timestamp\": \"2022-10-11T09:55:41.161Z\"\n    },\n    \"message\": {\n        \"intent\": {\n            \"item\": [\n                {\n                    \"descriptor\": {\n                        \"name\": \"Developer\"\n                    },\n                    \"location_id\": \"1\",\n                    \"fulfillment_id\": \"1\",\n                    \"time\":{\n                        \"timestamp\":\"2022-10-11T09:55:41.161Z\",\n                        \"duration\":\"\"\n                    }\n                }\n            ],\n            \"fulfillment\": [\n                {\n                    \"id\": \"1\",\n                    \"type\":\"\",\n                    \"start\":{\n                        \"location\":{\n                            \"id\":\"1\",\n                            \"city\":{\n                                \"name\":\"Delhi\"\n                            }\n                        }\n                    }\n                },\n                {\n                    \"id\": \"2\",\n                    \"type\":\"ONPREMISE\",\n                    \"start\":{\n                        \"location\":{\n                            \"id\":\"2\",\n                            \"city\":{\n                                \"name\":\"Pune\"\n                            }\n                        }\n                    }\n                }\n            ]\n        }\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{BPP}}/search"
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"jobid\": \"12391830183\",\n    \"result\": {\n        \"context\": {\n            \"action\": \"search\",\n            \"bap_id\": \"nic2004:74910.BPP\",\n            \"bap_uri\": \"https://18bhai62x2.execute-api.ap-south-1.amazonaws.com/dev/\",\n            \"bpp_id\": \"Aff-Dsep-\",\n            \"bpp_uri\": \"http://DSEP-nlb-d3ed9a3f85596080.elb.ap-south-1.amazonaws.com\",\n            \"city\": \"std:080\",\n            \"core_version\": \"0.5.0\",\n            \"country\": \"IND\",\n            \"domain\": \"nic2004:74910\",\n            \"message_id\": \"search-message-id-\",\n            \"timestamp\": \"2022-10-11T09:55:41.161Z\",\n            \"transaction_id\": \"12391830183\"\n        },\n        \"message\": {\n            \"catalog\": {\n                \"descriptor\": {\n                    \"name\": \"Affindi BPP\"\n                },\n                \"fulfillments\": [\n                    {\n                        \"id\": \"f0efc22ce62c45e19b97899a0a5a5700\",\n                        \"start\": {\n                            \"location\": {\n                                \"city\": {\n                                    \"name\": \"Bangalore\"\n                                },\n                                \"id\": \"469beb8022194a4e83deb47ac99a295b\"\n                            },\n                            \"time\": {\n                                \"timestamp\": \"2022-11-01T00:00:00\"\n                            }\n                        },\n                        \"type\": \"Hybrid\"\n                    },\n                    {\n                        \"id\": \"b9cccd295153429eaa969e7025179d5d\",\n                        \"start\": {\n                            \"location\": {\n                                \"city\": {\n                                    \"name\": \"Delhi\"\n                                },\n                                \"id\": \"3344e2bdfc1d4e819d8365bc18686f22\"\n                            },\n                            \"time\": {\n                                \"timestamp\": \"2022-11-01T00:00:00\"\n                            }\n                        },\n                        \"type\": \"Hybrid\"\n                    }\n                ],\n                \"offers\": [\n                    {\n                        \"id\": \"d4416150d80849328dd67f940ce84fb8\",\n                        \"item_ids\": [\n                            \"b3fe5ad4-ddbc-46ae-a1d6-dd3f1852ba0d\",\n                            \"15b58550-81c8-43c4-a8b8-1ff3f150d211\"\n                        ]\n                    },\n                    {\n                        \"id\": \"d4416150d80849328dd67f940ce84fb8\",\n                        \"item_ids\": [\n                            \"b3fe5ad4-ddbc-46ae-a1d6-dd3f1852ba0d\",\n                            \"15b58550-81c8-43c4-a8b8-1ff3f150d211\"\n                        ]\n                    }\n                ],\n                \"providers\": [\n                    {\n                        \"id\": \"b5083120260f41a495c5f17f43f7f254\",\n                        \"items\": [\n                            {\n                                \"descriptor\": {\n                                    \"name\": \"React Developer\"\n                                },\n                                \"id\": \"b3fe5ad4-ddbc-46ae-a1d6-dd3f1852ba0d\",\n                                \"location_id\": \"469beb8022194a4e83deb47ac99a295b\"\n                            },\n                            {\n                                \"descriptor\": {\n                                    \"name\": \"React Developer\"\n                                },\n                                \"id\": \"15b58550-81c8-43c4-a8b8-1ff3f150d211\",\n                                \"location_id\": \"3344e2bdfc1d4e819d8365bc18686f22\"\n                            }\n                        ],\n                        \"locations\": [\n                            {\n                                \"city\": {\n                                    \"name\": \"Bangalore\"\n                                }\n                            },\n                            {\n                                \"city\": {\n                                    \"name\": \"Delhi\"\n                                }\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"b5083120260f41a495c5f17f43f7f254\",\n                        \"items\": [\n                            {\n                                \"descriptor\": {\n                                    \"name\": \"React Developer\"\n                                },\n                                \"id\": \"b3fe5ad4-ddbc-46ae-a1d6-dd3f1852ba0d\",\n                                \"location_id\": \"469beb8022194a4e83deb47ac99a295b\"\n                            },\n                            {\n                                \"descriptor\": {\n                                    \"name\": \"React Developer\"\n                                },\n                                \"id\": \"15b58550-81c8-43c4-a8b8-1ff3f150d211\",\n                                \"location_id\": \"3344e2bdfc1d4e819d8365bc18686f22\"\n                            }\n                        ],\n                        \"locations\": [\n                            {\n                                \"city\": {\n                                    \"name\": \"Bangalore\"\n                                }\n                            },\n                            {\n                                \"city\": {\n                                    \"name\": \"Delhi\"\n                                }\n                            }\n                        ]\n                    }\n                ]\n            }\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Search with skill",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"context\": {\n        \"domain\": \"{{onest_expert_connect}}\",\n        \"action\": \"search\",\n        \"version\": \"{{core_version}}\",\n        \"bap_id\": \"{{bap_id}}\",\n        \"bap_uri\": \"{{bap_uri}}\",\n        \"location\": {\n            \"country\": {\n                \"name\": \"India\",\n                \"code\": \"IND\"\n            },\n            \"city\": {\n                \"name\": \"Bangalore\",\n                \"code\": \"std:080\"\n            }\n        },\n        \"timestamp\": \"2022-12-15T15:38:16.226Z\",\n        \"message_id\": \"64109204-bdff-4af6-a76b-5a33f8aa8675\",\n        \"transaction_id\": \"bdb5ba09-2241-4f00-b434-73466cd06228\"\n    },\n    \"message\": {\n        \"intent\": {\n            \"provider\": {\n                \"id\": \"coursera\"\n            }\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/search"
+							},
+							"response": [
+								{
+									"name": "Search",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"context\": {\n        \"domain\": \"nic2004:74910\",\n        \"country\": \"IND\",\n        \"city\": \"std:080\",\n        \"action\": \"search\",\n        \"core_version\": \"0.5.0\",\n        \"bap_id\": \"nic2004:74910.BPP\",\n        \"bap_uri\": \"https://18bhai62x2.execute-api.ap-south-1.amazonaws.com/dev/\",\n        \"transaction_id\": \"12391830183\",\n        \"message_id\": \"search-message-id-\",\n        \"timestamp\": \"2022-10-11T09:55:41.161Z\"\n    },\n    \"message\": {\n        \"intent\": {\n            \"item\": [\n                {\n                    \"descriptor\": {\n                        \"name\": \"Developer\"\n                    },\n                    \"location_id\": \"1\",\n                    \"fulfillment_id\": \"1\",\n                    \"time\":{\n                        \"timestamp\":\"2022-10-11T09:55:41.161Z\",\n                        \"duration\":\"\"\n                    }\n                }\n            ],\n            \"fulfillment\": [\n                {\n                    \"id\": \"1\",\n                    \"type\":\"\",\n                    \"start\":{\n                        \"location\":{\n                            \"id\":\"1\",\n                            \"city\":{\n                                \"name\":\"Delhi\"\n                            }\n                        }\n                    }\n                },\n                {\n                    \"id\": \"2\",\n                    \"type\":\"ONPREMISE\",\n                    \"start\":{\n                        \"location\":{\n                            \"id\":\"2\",\n                            \"city\":{\n                                \"name\":\"Pune\"\n                            }\n                        }\n                    }\n                }\n            ]\n        }\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{BPP}}/search"
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"jobid\": \"12391830183\",\n    \"result\": {\n        \"context\": {\n            \"action\": \"search\",\n            \"bap_id\": \"nic2004:74910.BPP\",\n            \"bap_uri\": \"https://18bhai62x2.execute-api.ap-south-1.amazonaws.com/dev/\",\n            \"bpp_id\": \"Aff-Dsep-\",\n            \"bpp_uri\": \"http://DSEP-nlb-d3ed9a3f85596080.elb.ap-south-1.amazonaws.com\",\n            \"city\": \"std:080\",\n            \"core_version\": \"0.5.0\",\n            \"country\": \"IND\",\n            \"domain\": \"nic2004:74910\",\n            \"message_id\": \"search-message-id-\",\n            \"timestamp\": \"2022-10-11T09:55:41.161Z\",\n            \"transaction_id\": \"12391830183\"\n        },\n       \"message\": {\n        \"intent\": {\n            \"item\": {\n                \"tags\" : [\n                    {\n                        \"descriptor\" : {\n                            \"name\" : \"skills\"\n                        },\n                        \"list\" : [\n                          {\n                            \"value\" : \"Figma\"\n                          }\n                        ]\n                    }\n                ]\n            }\n        }\n    }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Search With location",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"context\": {\n        \"domain\": \"{{onest_expert_connect}}\",\n        \"action\": \"search\",\n        \"version\": \"{{core_version}}\",\n        \"bap_id\": \"{{bap_id}}\",\n        \"bap_uri\": \"{{bap_uri}}\",\n        \"location\": {\n            \"country\": {\n                \"name\": \"India\",\n                \"code\": \"IND\"\n            },\n            \"city\": {\n                \"name\": \"Bangalore\",\n                \"code\": \"std:080\"\n            }\n        },\n        \"timestamp\": \"2022-12-15T15:38:16.226Z\",\n        \"message_id\": \"64109204-bdff-4af6-a76b-5a33f8aa8675\",\n        \"transaction_id\": \"bdb5ba09-2241-4f00-b434-73466cd06228\"\n    },\n    \"message\": {\n        \"intent\": {\n            \"location\": {\n                \"id\": \"1\",\n                \"city\": {\n                    \"name\": \"Delhi\"\n                }\n            }\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/search"
+							},
+							"response": [
+								{
+									"name": "Search",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"context\": {\n        \"domain\": \"nic2004:74910\",\n        \"country\": \"IND\",\n        \"city\": \"std:080\",\n        \"action\": \"search\",\n        \"core_version\": \"0.5.0\",\n        \"bap_id\": \"nic2004:74910.BPP\",\n        \"bap_uri\": \"https://18bhai62x2.execute-api.ap-south-1.amazonaws.com/dev/\",\n        \"transaction_id\": \"12391830183\",\n        \"message_id\": \"search-message-id-\",\n        \"timestamp\": \"2022-10-11T09:55:41.161Z\"\n    },\n    \"message\": {\n        \"intent\": {\n            \"item\": [\n                {\n                    \"descriptor\": {\n                        \"name\": \"Developer\"\n                    },\n                    \"location_id\": \"1\",\n                    \"fulfillment_id\": \"1\",\n                    \"time\":{\n                        \"timestamp\":\"2022-10-11T09:55:41.161Z\",\n                        \"duration\":\"\"\n                    }\n                }\n            ],\n            \"fulfillment\": [\n                {\n                    \"id\": \"1\",\n                    \"type\":\"\",\n                    \"start\":{\n                        \"location\":{\n                            \"id\":\"1\",\n                            \"city\":{\n                                \"name\":\"Delhi\"\n                            }\n                        }\n                    }\n                },\n                {\n                    \"id\": \"2\",\n                    \"type\":\"ONPREMISE\",\n                    \"start\":{\n                        \"location\":{\n                            \"id\":\"2\",\n                            \"city\":{\n                                \"name\":\"Pune\"\n                            }\n                        }\n                    }\n                }\n            ]\n        }\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{BPP}}/search"
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"jobid\": \"12391830183\",\n    \"result\": {\n        \"context\": {\n            \"action\": \"search\",\n            \"bap_id\": \"nic2004:74910.BPP\",\n            \"bap_uri\": \"https://18bhai62x2.execute-api.ap-south-1.amazonaws.com/dev/\",\n            \"bpp_id\": \"Aff-Dsep-\",\n            \"bpp_uri\": \"http://DSEP-nlb-d3ed9a3f85596080.elb.ap-south-1.amazonaws.com\",\n            \"city\": \"std:080\",\n            \"core_version\": \"0.5.0\",\n            \"country\": \"IND\",\n            \"domain\": \"nic2004:74910\",\n            \"message_id\": \"search-message-id-\",\n            \"timestamp\": \"2022-10-11T09:55:41.161Z\",\n            \"transaction_id\": \"12391830183\"\n        },\n        \"message\": {\n        \"intent\": {\n            \"location\": {\n                \"gps\": \"12.423423,77.325647\",\n                \"radius\": {\n                    \"type\": \"CONSTANT\",\n                    \"value\": \"5\",\n                    \"unit\": \"km\"\n                }\n            },\n            \"item\": {\n                \"descriptor\": {\n                    \"name\": \"Mayank\"\n                }\n            }\n        }\n    }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Search With Category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"context\": {\n        \"domain\": \"{{onest_expert_connect}}\",\n        \"action\": \"search\",\n        \"version\": \"{{core_version}}\",\n        \"bap_id\": \"{{bap_id}}\",\n        \"bap_uri\": \"{{bap_uri}}\",\n        \"location\": {\n            \"country\": {\n                \"name\": \"India\",\n                \"code\": \"IND\"\n            },\n            \"city\": {\n                \"name\": \"Bangalore\",\n                \"code\": \"std:080\"\n            }\n        },\n        \"timestamp\": \"2022-12-15T15:38:16.226Z\",\n        \"message_id\": \"64109204-bdff-4af6-a76b-5a33f8aa8675\",\n        \"transaction_id\": \"bdb5ba09-2241-4f00-b434-73466cd06228\"\n    },\n    \"message\": {\n        \"intent\": {\n            \"category\": {\n                \"descriptor\": {\n                    \"code\": \"coaching\"\n                }\n            }\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/search"
+							},
+							"response": [
+								{
+									"name": "Search",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"context\": {\n        \"domain\": \"nic2004:74910\",\n        \"country\": \"IND\",\n        \"city\": \"std:080\",\n        \"action\": \"search\",\n        \"core_version\": \"0.5.0\",\n        \"bap_id\": \"nic2004:74910.BPP\",\n        \"bap_uri\": \"https://18bhai62x2.execute-api.ap-south-1.amazonaws.com/dev/\",\n        \"transaction_id\": \"12391830183\",\n        \"message_id\": \"search-message-id-\",\n        \"timestamp\": \"2022-10-11T09:55:41.161Z\"\n    },\n    \"message\": {\n        \"intent\": {\n            \"item\": [\n                {\n                    \"descriptor\": {\n                        \"name\": \"Developer\"\n                    },\n                    \"location_id\": \"1\",\n                    \"fulfillment_id\": \"1\",\n                    \"time\":{\n                        \"timestamp\":\"2022-10-11T09:55:41.161Z\",\n                        \"duration\":\"\"\n                    }\n                }\n            ],\n            \"fulfillment\": [\n                {\n                    \"id\": \"1\",\n                    \"type\":\"\",\n                    \"start\":{\n                        \"location\":{\n                            \"id\":\"1\",\n                            \"city\":{\n                                \"name\":\"Delhi\"\n                            }\n                        }\n                    }\n                },\n                {\n                    \"id\": \"2\",\n                    \"type\":\"ONPREMISE\",\n                    \"start\":{\n                        \"location\":{\n                            \"id\":\"2\",\n                            \"city\":{\n                                \"name\":\"Pune\"\n                            }\n                        }\n                    }\n                }\n            ]\n        }\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{BPP}}/search"
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"jobid\": \"12391830183\",\n    \"result\": {\n        \"context\": {\n            \"action\": \"search\",\n            \"bap_id\": \"nic2004:74910.BPP\",\n            \"bap_uri\": \"https://18bhai62x2.execute-api.ap-south-1.amazonaws.com/dev/\",\n            \"bpp_id\": \"Aff-Dsep-\",\n            \"bpp_uri\": \"http://DSEP-nlb-d3ed9a3f85596080.elb.ap-south-1.amazonaws.com\",\n            \"city\": \"std:080\",\n            \"core_version\": \"0.5.0\",\n            \"country\": \"IND\",\n            \"domain\": \"nic2004:74910\",\n            \"message_id\": \"search-message-id-\",\n            \"timestamp\": \"2022-10-11T09:55:41.161Z\",\n            \"transaction_id\": \"12391830183\"\n        },\n        \"message\": {\n            \"catalog\": {\n                \"descriptor\": {\n                    \"name\": \"Affindi BPP\"\n                },\n                \"fulfillments\": [\n                    {\n                        \"id\": \"f0efc22ce62c45e19b97899a0a5a5700\",\n                        \"start\": {\n                            \"location\": {\n                                \"city\": {\n                                    \"name\": \"Bangalore\"\n                                },\n                                \"id\": \"469beb8022194a4e83deb47ac99a295b\"\n                            },\n                            \"time\": {\n                                \"timestamp\": \"2022-11-01T00:00:00\"\n                            }\n                        },\n                        \"type\": \"Hybrid\"\n                    },\n                    {\n                        \"id\": \"b9cccd295153429eaa969e7025179d5d\",\n                        \"start\": {\n                            \"location\": {\n                                \"city\": {\n                                    \"name\": \"Delhi\"\n                                },\n                                \"id\": \"3344e2bdfc1d4e819d8365bc18686f22\"\n                            },\n                            \"time\": {\n                                \"timestamp\": \"2022-11-01T00:00:00\"\n                            }\n                        },\n                        \"type\": \"Hybrid\"\n                    }\n                ],\n                \"offers\": [\n                    {\n                        \"id\": \"d4416150d80849328dd67f940ce84fb8\",\n                        \"item_ids\": [\n                            \"b3fe5ad4-ddbc-46ae-a1d6-dd3f1852ba0d\",\n                            \"15b58550-81c8-43c4-a8b8-1ff3f150d211\"\n                        ]\n                    },\n                    {\n                        \"id\": \"d4416150d80849328dd67f940ce84fb8\",\n                        \"item_ids\": [\n                            \"b3fe5ad4-ddbc-46ae-a1d6-dd3f1852ba0d\",\n                            \"15b58550-81c8-43c4-a8b8-1ff3f150d211\"\n                        ]\n                    }\n                ],\n                \"providers\": [\n                    {\n                        \"id\": \"b5083120260f41a495c5f17f43f7f254\",\n                        \"items\": [\n                            {\n                                \"descriptor\": {\n                                    \"name\": \"React Developer\"\n                                },\n                                \"id\": \"b3fe5ad4-ddbc-46ae-a1d6-dd3f1852ba0d\",\n                                \"location_id\": \"469beb8022194a4e83deb47ac99a295b\"\n                            },\n                            {\n                                \"descriptor\": {\n                                    \"name\": \"React Developer\"\n                                },\n                                \"id\": \"15b58550-81c8-43c4-a8b8-1ff3f150d211\",\n                                \"location_id\": \"3344e2bdfc1d4e819d8365bc18686f22\"\n                            }\n                        ],\n                        \"locations\": [\n                            {\n                                \"city\": {\n                                    \"name\": \"Bangalore\"\n                                }\n                            },\n                            {\n                                \"city\": {\n                                    \"name\": \"Delhi\"\n                                }\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"b5083120260f41a495c5f17f43f7f254\",\n                        \"items\": [\n                            {\n                                \"descriptor\": {\n                                    \"name\": \"React Developer\"\n                                },\n                                \"id\": \"b3fe5ad4-ddbc-46ae-a1d6-dd3f1852ba0d\",\n                                \"location_id\": \"469beb8022194a4e83deb47ac99a295b\"\n                            },\n                            {\n                                \"descriptor\": {\n                                    \"name\": \"React Developer\"\n                                },\n                                \"id\": \"15b58550-81c8-43c4-a8b8-1ff3f150d211\",\n                                \"location_id\": \"3344e2bdfc1d4e819d8365bc18686f22\"\n                            }\n                        ],\n                        \"locations\": [\n                            {\n                                \"city\": {\n                                    \"name\": \"Bangalore\"\n                                }\n                            },\n                            {\n                                \"city\": {\n                                    \"name\": \"Delhi\"\n                                }\n                            }\n                        ]\n                    }\n                ]\n            }\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Search With Combination",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"context\": {\n        \"domain\": \"{{onest_expert_connect}}\",\n        \"action\": \"search\",\n        \"version\": \"{{core_version}}\",\n        \"bap_id\": \"{{bap_id}}\",\n        \"bap_uri\": \"{{bap_uri}}\",\n        \"location\": {\n            \"country\": {\n                \"name\": \"India\",\n                \"code\": \"IND\"\n            },\n            \"city\": {\n                \"name\": \"Bangalore\",\n                \"code\": \"std:080\"\n            }\n        },\n        \"timestamp\": \"2022-12-15T15:38:16.226Z\",\n        \"message_id\": \"64109204-bdff-4af6-a76b-5a33f8aa8675\",\n        \"transaction_id\": \"bdb5ba09-2241-4f00-b434-73466cd06228\"\n    },\n    \"message\": {\n        \"intent\": {\n            \"item\": {\n                \"descriptor\": {\n                    \"name\": \"man\"\n                }\n            },\n            \"category\": {\n                \"descriptor\": {\n                    \"name\": \"coaching\"\n                }\n            }\n        },\n        \"location\": {\n            \"id\": \"1\",\n            \"city\": {\n                \"name\": \"Delhi\"\n            }\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/search"
+							},
+							"response": [
+								{
+									"name": "Search",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"context\": {\n        \"domain\": \"nic2004:74910\",\n        \"country\": \"IND\",\n        \"city\": \"std:080\",\n        \"action\": \"search\",\n        \"core_version\": \"0.5.0\",\n        \"bap_id\": \"nic2004:74910.BPP\",\n        \"bap_uri\": \"https://18bhai62x2.execute-api.ap-south-1.amazonaws.com/dev/\",\n        \"transaction_id\": \"12391830183\",\n        \"message_id\": \"search-message-id-\",\n        \"timestamp\": \"2022-10-11T09:55:41.161Z\"\n    },\n    \"message\": {\n        \"intent\": {\n            \"item\": [\n                {\n                    \"descriptor\": {\n                        \"name\": \"Developer\"\n                    },\n                    \"location_id\": \"1\",\n                    \"fulfillment_id\": \"1\",\n                    \"time\":{\n                        \"timestamp\":\"2022-10-11T09:55:41.161Z\",\n                        \"duration\":\"\"\n                    }\n                }\n            ],\n            \"fulfillment\": [\n                {\n                    \"id\": \"1\",\n                    \"type\":\"\",\n                    \"start\":{\n                        \"location\":{\n                            \"id\":\"1\",\n                            \"city\":{\n                                \"name\":\"Delhi\"\n                            }\n                        }\n                    }\n                },\n                {\n                    \"id\": \"2\",\n                    \"type\":\"ONPREMISE\",\n                    \"start\":{\n                        \"location\":{\n                            \"id\":\"2\",\n                            \"city\":{\n                                \"name\":\"Pune\"\n                            }\n                        }\n                    }\n                }\n            ]\n        }\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{BPP}}/search"
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"jobid\": \"12391830183\",\n    \"result\": {\n        \"context\": {\n            \"action\": \"search\",\n            \"bap_id\": \"nic2004:74910.BPP\",\n            \"bap_uri\": \"https://18bhai62x2.execute-api.ap-south-1.amazonaws.com/dev/\",\n            \"bpp_id\": \"Aff-Dsep-\",\n            \"bpp_uri\": \"http://DSEP-nlb-d3ed9a3f85596080.elb.ap-south-1.amazonaws.com\",\n            \"city\": \"std:080\",\n            \"core_version\": \"0.5.0\",\n            \"country\": \"IND\",\n            \"domain\": \"nic2004:74910\",\n            \"message_id\": \"search-message-id-\",\n            \"timestamp\": \"2022-10-11T09:55:41.161Z\",\n            \"transaction_id\": \"12391830183\"\n        },\n        \"message\": {\n            \"catalog\": {\n                \"descriptor\": {\n                    \"name\": \"Affindi BPP\"\n                },\n                \"fulfillments\": [\n                    {\n                        \"id\": \"f0efc22ce62c45e19b97899a0a5a5700\",\n                        \"start\": {\n                            \"location\": {\n                                \"city\": {\n                                    \"name\": \"Bangalore\"\n                                },\n                                \"id\": \"469beb8022194a4e83deb47ac99a295b\"\n                            },\n                            \"time\": {\n                                \"timestamp\": \"2022-11-01T00:00:00\"\n                            }\n                        },\n                        \"type\": \"Hybrid\"\n                    },\n                    {\n                        \"id\": \"b9cccd295153429eaa969e7025179d5d\",\n                        \"start\": {\n                            \"location\": {\n                                \"city\": {\n                                    \"name\": \"Delhi\"\n                                },\n                                \"id\": \"3344e2bdfc1d4e819d8365bc18686f22\"\n                            },\n                            \"time\": {\n                                \"timestamp\": \"2022-11-01T00:00:00\"\n                            }\n                        },\n                        \"type\": \"Hybrid\"\n                    }\n                ],\n                \"offers\": [\n                    {\n                        \"id\": \"d4416150d80849328dd67f940ce84fb8\",\n                        \"item_ids\": [\n                            \"b3fe5ad4-ddbc-46ae-a1d6-dd3f1852ba0d\",\n                            \"15b58550-81c8-43c4-a8b8-1ff3f150d211\"\n                        ]\n                    },\n                    {\n                        \"id\": \"d4416150d80849328dd67f940ce84fb8\",\n                        \"item_ids\": [\n                            \"b3fe5ad4-ddbc-46ae-a1d6-dd3f1852ba0d\",\n                            \"15b58550-81c8-43c4-a8b8-1ff3f150d211\"\n                        ]\n                    }\n                ],\n                \"providers\": [\n                    {\n                        \"id\": \"b5083120260f41a495c5f17f43f7f254\",\n                        \"items\": [\n                            {\n                                \"descriptor\": {\n                                    \"name\": \"React Developer\"\n                                },\n                                \"id\": \"b3fe5ad4-ddbc-46ae-a1d6-dd3f1852ba0d\",\n                                \"location_id\": \"469beb8022194a4e83deb47ac99a295b\"\n                            },\n                            {\n                                \"descriptor\": {\n                                    \"name\": \"React Developer\"\n                                },\n                                \"id\": \"15b58550-81c8-43c4-a8b8-1ff3f150d211\",\n                                \"location_id\": \"3344e2bdfc1d4e819d8365bc18686f22\"\n                            }\n                        ],\n                        \"locations\": [\n                            {\n                                \"city\": {\n                                    \"name\": \"Bangalore\"\n                                }\n                            },\n                            {\n                                \"city\": {\n                                    \"name\": \"Delhi\"\n                                }\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"b5083120260f41a495c5f17f43f7f254\",\n                        \"items\": [\n                            {\n                                \"descriptor\": {\n                                    \"name\": \"React Developer\"\n                                },\n                                \"id\": \"b3fe5ad4-ddbc-46ae-a1d6-dd3f1852ba0d\",\n                                \"location_id\": \"469beb8022194a4e83deb47ac99a295b\"\n                            },\n                            {\n                                \"descriptor\": {\n                                    \"name\": \"React Developer\"\n                                },\n                                \"id\": \"15b58550-81c8-43c4-a8b8-1ff3f150d211\",\n                                \"location_id\": \"3344e2bdfc1d4e819d8365bc18686f22\"\n                            }\n                        ],\n                        \"locations\": [\n                            {\n                                \"city\": {\n                                    \"name\": \"Bangalore\"\n                                }\n                            },\n                            {\n                                \"city\": {\n                                    \"name\": \"Delhi\"\n                                }\n                            }\n                        ]\n                    }\n                ]\n            }\n        }\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "bap_uri",
+			"value": "https://ps-bap-network.becknprotocol.io/",
+			"type": "string"
+		},
+		{
+			"key": "bap_id",
+			"value": "ps-bap-network.becknprotocol.io",
+			"type": "string"
+		},
+		{
+			"key": "base_url",
+			"value": "https://ps-bap-client.becknprotocol.io",
+			"type": "string"
+		},
+		{
+			"key": "bpp_id",
+			"value": "beckn-sandbox-bpp.becknprotocol.io",
+			"type": "string"
+		},
+		{
+			"key": "bpp_uri",
+			"value": "https://sandbox-bpp-network.becknprotocol.io",
+			"type": "string"
+		},
+		{
+			"key": "core_version",
+			"value": "1.1.0",
+			"type": "string"
+		},
+		{
+			"key": "onest_work_opportunities",
+			"value": "onest:work-opportunities",
+			"type": "string"
+		},
+		{
+			"key": "onest_financial_support",
+			"value": "onest:financial-support",
+			"type": "string"
+		},
+		{
+			"key": "onest_learning_experiences",
+			"value": "onest:learning-experiences",
+			"type": "string"
+		},
+		{
+			"key": "onest_expert_connect",
+			"value": "onest:expert-connect",
+			"type": "string"
+		}
+	]
+}
