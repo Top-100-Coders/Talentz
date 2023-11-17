@@ -57,19 +57,28 @@ The participants are required to build their own BPP and also a BAP and integrat
 
 ```
 
-**Mulearn Endpoints**
+### Mulearn Endpoints
 
-https://mulearn.org/api/v1/get-log/list-ig/ (get method)
-https://mulearn.org/api/v1/get-log/list-ig-top100/ (params:ig_name)
+#### GET
+
+```bash
+    https://mulearn.org/api/v1/get-log/list-ig
+```
+
+#### POST
+```bash
+    https://mulearn.org/api/v1/get-log/list-ig-top100/
+    > params:ig_name
+```
 
 
-For understanding all API endpoints.
-    - https://developers.becknprotocol.io/docs/local-retail-specification/api-reference/
+> For understanding all API endpoints.
+    - [developers.becknprotocol.io/docs/](https://developers.becknprotocol.io/docs/local-retail-specification/api-reference/)
 
-The Current Implementation Of The BPP used in the hackathon
-    - https://github.com/Mishalabdullah/beckn-protocol
+> The Current Implementation Of The BPP used in the hackathon
+    - [Mishalabdullah/beckn-protocol](https://github.com/Mishalabdullah/beckn-protocol)
 
-**BAP RUNNING PARTS**
+### BAP RUNNING PARTS
 
 1. Beckn Protocol Server :- 
     This repo is used for running docker containers of mongo, redis and rabbitmq these are the docker containers which are required for
