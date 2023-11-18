@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:talentz/constants/api_const/api_const.dart';
+
 import '../../constants/app_routes.dart';
 import '../../constants/string_manager.dart';
 import '../../main.dart';
@@ -17,17 +17,14 @@ class AuthInterceptor extends Interceptor {
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    final listOfPaths = <String>[
-
-    ];
+    final listOfPaths = <String>[];
 
     if (listOfPaths.contains(options.path.toString())) {
       return handler.next(options);
     }
 
-    final token= await cacheService.readCache(key: AppStrings.token);
+    final token = await cacheService.readCache(key: AppStrings.token);
     options.headers.addAll({'Authorization': 'Bearer $token'});
-
 
     return handler.next(options);
   }
@@ -38,9 +35,10 @@ class AuthInterceptor extends Interceptor {
   }
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) async {
+  void onError(DioException err, ErrorInterceptorHandler handler) async {
     if ((err.response?.statusCode == 401 &&
-        err.response?.data["message"] == "Session Expired, Please Login Again")) {
+        err.response?.data["message"] ==
+            "Session Expired, Please Login Again")) {
       // print("Token expired ");
       accessToken = null;
       cacheService.deleteCache();
@@ -48,7 +46,8 @@ class AuthInterceptor extends Interceptor {
       const SnackBar snackBar = SnackBar(
           backgroundColor: Colors.red, content: Text("Session Expired"));
       snackbarKey.currentState?.showSnackBar(snackBar);
-      navigatorKey.currentState!.pushNamedAndRemoveUntil(loginRoute, (route) => false);
+      navigatorKey.currentState!
+          .pushNamedAndRemoveUntil(loginRoute, (route) => false);
       // if (await refreshToken()) {
       //   print("Token expired checked");
       //   return handler.resolve(await _retry(err.requestOptions));
@@ -69,8 +68,10 @@ class AuthInterceptor extends Interceptor {
   }
 
   Future<bool> refreshToken() async {
-    final refreshToken = await cacheService.readCache(key: AppStrings.refreshToken);
-    final response = await _dio.post('/auth/refresh', data: {'refreshToken': refreshToken});
+    final refreshToken =
+        await cacheService.readCache(key: AppStrings.refreshToken);
+    final response =
+        await _dio.post('/auth/refresh', data: {'refreshToken': refreshToken});
     print('refresh code${response.statusCode}');
     if (response.statusCode == 201) {
       accessToken = response.data;
@@ -82,5 +83,5 @@ class AuthInterceptor extends Interceptor {
       cacheService.deleteCache();
       return false;
     }
-    }
+  }
 }
