@@ -1,2 +1,2 @@
-- Built BAP and BPP with teammates
-- Building the front end in Flutter with teammate
+- I have build the BAP and BPP of the Beckn protocol for this app with teammates
+- The front end of this project is built as a Flutter application. I built this app with my teammates.
