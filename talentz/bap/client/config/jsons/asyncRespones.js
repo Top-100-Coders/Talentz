@@ -1,4 +1,0 @@
-const webhookResponses={
-    "context":{},
-    "message":{}
-};
