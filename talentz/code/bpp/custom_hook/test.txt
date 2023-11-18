@@ -1,0 +1,31 @@
+# Copy paste this into bash after replacing bap_id and bap_uri
+
+curl http://localhost:6001/search -H 'Content-Type: application/json' -d'
+{
+    "context": {
+        "domain": "work_opportunities",
+        "country": "IND",
+        "city": "std:080",
+        "action": "search",
+        "core_version": "0.9.4",
+        "bap_id": "{{ bap_id }}",
+        "bap_uri": "{{ bap_uri }}",
+        "transaction_id": "1239890342",
+        "message_id": "123793824",
+        "timestamp": "2025-03-23T10:00:40.065Z"
+    },
+    "message": {
+        "intent" : {
+            "provider": {
+                "descriptor" : {
+                    "name" : "skills"
+                },
+                "list": [
+                  {
+                    "value": "React"
+                  }
+                ]
+            }
+        }
+    }
+}'
