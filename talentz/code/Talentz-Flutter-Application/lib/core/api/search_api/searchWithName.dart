@@ -1,9 +1,7 @@
-import 'dart:convert';
 import 'package:dio/dio.dart';
 
 import '../../../constants/api_const/api_const.dart';
 import '../../interceptor/app_dio.dart';
-import 'package:crypto/crypto.dart';
 
 class SearchWithNameApi {
   Future searchWithName({required String skill}) async {
@@ -17,14 +15,8 @@ class SearchWithNameApi {
         "bap_id": "mulearn-hackninjas-bap",
         "bap_uri": "https://mulearn-hackninjas-bap.loca.lt/",
         "location": {
-          "country": {
-            "name": "India",
-            "code": "IND"
-          },
-          "city": {
-            "name": "Bangalore",
-            "code": "std:080"
-          }
+          "country": {"name": "India", "code": "IND"},
+          "city": {"name": "Bangalore", "code": "std:080"}
         },
         "timestamp": "2022-12-15T15:38:16.226Z",
         "message_id": "64109204-bdff-4af6-a76b-5a33f8aa8675",
@@ -33,7 +25,7 @@ class SearchWithNameApi {
       "message": {
         "intent": {
           "item": {
-            "tags" : [
+            "tags": [
               {
                 "descriptor" : {
                   "name" : "skills"
@@ -44,6 +36,7 @@ class SearchWithNameApi {
                   },
 
                 ]
+
               }
             ]
           }
@@ -52,13 +45,17 @@ class SearchWithNameApi {
     };
 
     final response = await Api().dio.post(
-      uri,
-      data: bodyData,
-      options: Options(
-        headers: {"accept": "*/*'", "Accept-Encoding" : "gzip, deflate, br","Connection":"keep-alive"},
-        contentType: 'application/json',
-      ),
-    );
+          uri,
+          data: bodyData,
+          options: Options(
+            headers: {
+              "accept": "*/*'",
+              "Accept-Encoding": "gzip, deflate, br",
+              "Connection": "keep-alive"
+            },
+            contentType: 'application/json',
+          ),
+        );
 
     final statusCode = response.statusCode;
 
