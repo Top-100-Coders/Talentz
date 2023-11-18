@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talentz/constants/values_manger.dart';
 
 import '../../../constants/constants.dart';
 import '../../../models/search_with_name_model.dart';
@@ -10,11 +11,11 @@ class SearchNotifier extends ChangeNotifier {
 
   bool _isLoading = false;
   int? _statusCode;
-  List<SkillsModel>? _values;
+  SkillsModel? _values;
 
   bool get getIsLoading => _isLoading;
   int? get getStatusCode => _statusCode;
-  List<SkillsModel>? get getResultModel => _values;
+  SkillsModel? get getResultModel => _values;
 
   CacheService cashService = CacheService();
 
@@ -23,9 +24,10 @@ class SearchNotifier extends ChangeNotifier {
     try {
       _isLoading = true;
       notifyListeners();
-      final listData = await _loginAPI.searchWithName(skill: skill);
+      final listData = await _loginAPI.searchWithName(skill: skill).timeout(const Duration(seconds: DurationConstant.d30));
+      final parsedData = listData["responses"][0]["message"]["catalog"];
       if (listData["responses"] != null || listData["responses"].isNotEmpty) {
-        // _values = SkillsModel.fromJson(listData);
+        _values = SkillsModel.fromJson(parsedData);
       } else {
         showSnackBar(context: context, text: listData["message"]);
       }

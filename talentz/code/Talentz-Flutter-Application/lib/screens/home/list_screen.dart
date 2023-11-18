@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:talentz/constants/color_manger.dart';
 import 'package:talentz/constants/constants.dart';
@@ -44,9 +45,10 @@ class ListViewScreen extends HookWidget {
           Consumer<SearchNotifier>(
             builder: (context, snapshot,_) {
               return Expanded(
-                child: snapshot.getIsLoading? const CircularProgressIndicator():ListView.builder(
-                  itemCount: 2,
+                child:(snapshot.getResultModel?.users?.isNotEmpty ?? false) || (snapshot.getResultModel?.users != null)? ListView.builder(
+                  itemCount: snapshot.getResultModel?.users?.length,
                   itemBuilder: (BuildContext context, int index) {
+                    final data = snapshot.getResultModel?.users?[index];
                     return Container(
                       margin: EdgeInsets.symmetric(horizontal: AppPadding.p12,vertical: AppPadding.p8),
                       padding: EdgeInsets.symmetric(horizontal: AppPadding.p16,vertical: AppPadding.p12),
@@ -74,15 +76,18 @@ class ListViewScreen extends HookWidget {
                              mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Rohan Khan",style: getBoldStyle(color: ColorManager.black),),
-                              Text("Skill: Python",style: getSemiBoldStyle(color: ColorManager.black),),
-                              Text("Location: Kochi",style: getSemiBoldStyle(color: ColorManager.black),)
+                              Text( data?.name ?? "",style: getBoldStyle(color: ColorManager.black),),
+                              Text("Skill: ${data?.skills ?? ""}",style: getSemiBoldStyle(color: ColorManager.black),),
+                              Text("Location: ${data?.location ?? ""}",style: getSemiBoldStyle(color: ColorManager.black),)
                             ],
                           ),
                         ],
                       ),
                     );
                   },
+                ):Center(
+                  child: Lottie.asset(ImageAssets.loaderJson,
+                      height: 140.h, repeat: false, animate: true),
                 ),
               );
             }
