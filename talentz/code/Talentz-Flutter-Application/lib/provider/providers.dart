@@ -2,7 +2,7 @@
 
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'package:talentz/core/notifier/auth/searchWithName.dart';
+import '../core/notifier/search_notifier/searchWithName.dart';
 import 'general_notifier.dart';
 
 

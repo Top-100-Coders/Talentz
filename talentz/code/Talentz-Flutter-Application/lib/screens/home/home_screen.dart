@@ -9,7 +9,6 @@ import 'package:talentz/constants/font_manager.dart';
 import 'package:talentz/constants/style_manager.dart';
 import 'package:provider/provider.dart';
 import '../../../constants/values_manger.dart';
-import '../../core/notifier/auth/searchWithName.dart';
 import '../../provider/general_notifier.dart';
 import '../widget/main_app_bar_widget.dart';
 import '../widget/square_tile_widget.dart';
@@ -73,7 +72,6 @@ class HomeScreen extends HookWidget {
                                 onTap: () async {
                                   isLoading.value =true;
                                   if(index==0){
-                                    context.read<SearchNotifier>().searchWithName(context: context);
                                         Navigator.pushNamed(context, listViewRoute);
                                     }
                                   else if (index == 1){

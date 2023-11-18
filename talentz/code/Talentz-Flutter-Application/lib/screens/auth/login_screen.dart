@@ -12,7 +12,7 @@ import 'package:talentz/constants/values_manger.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/asset_manager.dart';
-import '../../core/notifier/auth/searchWithName.dart';
+import '../../core/notifier/search_notifier/searchWithName.dart';
 import '../../provider/general_notifier.dart';
 import '../widget/custom_button_widget.dart';
 

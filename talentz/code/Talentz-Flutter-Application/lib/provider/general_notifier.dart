@@ -57,21 +57,4 @@ class GeneralNotifier extends ChangeNotifier {
 
 
   }
-
-  Future<void> setLoader() async {
-    _percent = 0;
-    notifyListeners();
-    const totalMessages = 100;
-    const totalTimeInSeconds = 2 * 60;
-    final interval = Duration(milliseconds: (totalTimeInSeconds / totalMessages * 1000).round());
-
-    Timer.periodic(interval, (timer) {
-      _percent++;
-      notifyListeners();
-      if (_percent >= totalMessages) {
-        timer.cancel();
-      }
-    });
-
-  }
 }

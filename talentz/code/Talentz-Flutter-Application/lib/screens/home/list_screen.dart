@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:talentz/constants/color_manger.dart';
 import 'package:talentz/constants/constants.dart';
 import 'package:talentz/constants/style_manager.dart';
 import 'package:talentz/constants/values_manger.dart';
+import 'package:talentz/screens/widget/custom_button_widget.dart';
 import 'package:talentz/screens/widget/main_app_bar_widget.dart';
 
 import '../../constants/asset_manager.dart';
+import '../../core/notifier/search_notifier/searchWithName.dart';
 import '../widget/text_field_widget.dart';
 
 
@@ -28,47 +31,61 @@ class ListViewScreen extends HookWidget {
             icon: Icons.search_rounded
           ),
           kSizedBox10,
-          Expanded(
-            child: ListView.builder(
-              itemCount: 5,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  margin: EdgeInsets.symmetric(horizontal: AppPadding.p12,vertical: AppPadding.p8),
-                  padding: EdgeInsets.symmetric(horizontal: AppPadding.p16,vertical: AppPadding.p12),
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: ColorManager.grey5,
-                          offset: Offset(0.0, 1.0), //(x,y)
-                          blurRadius: 6.0,
-                        ),
-                      ],
-                    color: ColorManager.white,
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(AppPadding.p16),bottomRight: Radius.circular(AppPadding.p16) )
-                  ),
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 30.r,
-                        backgroundColor: ColorManager.grey5,
-                        child: Center(
-                          child:Image.asset(ImageAssets.personImage)),
+          Consumer<SearchNotifier>(
+            builder: (context, snapshot,_) {
+              return snapshot.getIsLoading ? CircularProgressIndicator():CustomButton(onTap: (){
+
+                context.read<SearchNotifier>().searchWithNameNotifier(context: context,skill: searchController.text);
+
+              }, width: 120.w, isLight: false, text: "Search");
+            }
+          ),
+          // kSizedBox10,
+          Consumer<SearchNotifier>(
+            builder: (context, snapshot,_) {
+              return Expanded(
+                child: snapshot.getIsLoading? const CircularProgressIndicator():ListView.builder(
+                  itemCount: 2,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      margin: EdgeInsets.symmetric(horizontal: AppPadding.p12,vertical: AppPadding.p8),
+                      padding: EdgeInsets.symmetric(horizontal: AppPadding.p16,vertical: AppPadding.p12),
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: ColorManager.grey5,
+                              offset: Offset(0.0, 1.0), //(x,y)
+                              blurRadius: 6.0,
+                            ),
+                          ],
+                        color: ColorManager.white,
+                        borderRadius: BorderRadius.only(topLeft: Radius.circular(AppPadding.p16),bottomRight: Radius.circular(AppPadding.p16) )
                       ),
-                       kSizedW20,
-                       Column(
-                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Row(
                         children: [
-                          Text("Rohan Khan",style: getBoldStyle(color: ColorManager.black),),
-                          Text("Skill: Python",style: getSemiBoldStyle(color: ColorManager.black),),
-                          Text("Location: Kochi",style: getSemiBoldStyle(color: ColorManager.black),)
+                          CircleAvatar(
+                            radius: 20.r,
+                            backgroundColor: ColorManager.grey5,
+                            child: Center(
+                              child:Image.asset(ImageAssets.personImage)),
+                          ),
+                           kSizedW20,
+                           Column(
+                             mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Rohan Khan",style: getBoldStyle(color: ColorManager.black),),
+                              Text("Skill: Python",style: getSemiBoldStyle(color: ColorManager.black),),
+                              Text("Location: Kochi",style: getSemiBoldStyle(color: ColorManager.black),)
+                            ],
+                          ),
                         ],
                       ),
-                    ],
-                  ),
-                );
-              },
-            ),
+                    );
+                  },
+                ),
+              );
+            }
           )
         ],
       ),

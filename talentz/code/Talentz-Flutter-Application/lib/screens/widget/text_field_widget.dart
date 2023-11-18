@@ -53,7 +53,7 @@ class TextFormFieldCustom extends StatelessWidget {
             readOnly: isReadOnly,
             onTap: onTap,
             enabled: isEnable,
-            style: getSemiBoldStyle(color:ColorManager.white),
+            style: getSemiBoldStyle(color:ColorManager.black),
             keyboardType: inputType,
             inputFormatters: inputFormatters,
             validator: validator ??
