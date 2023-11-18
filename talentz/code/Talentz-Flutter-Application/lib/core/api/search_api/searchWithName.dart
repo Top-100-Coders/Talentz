@@ -38,7 +38,12 @@ class SearchWithNameApi {
                 "descriptor" : {
                   "name" : "skills"
                 },
-                "skills" : skill
+                "list" : [
+                  {
+                    "value" : skill
+                  },
+
+                ]
               }
             ]
           }
