@@ -46,17 +46,19 @@ class ListViewScreen extends HookWidget {
                           final searchNotifier = context.read<SearchNotifier>();
                           switch (searchType) {
                             case SearchType.name:
-                              searchNotifier
-                                  .searchWithName(searchController.text);
+                              searchNotifier.searchWithName(searchController.text);
                               break;
                             case SearchType.skill:
                               searchNotifier.searchWithSkillNotifier(
                                   searchController.text);
                               break;
                             case SearchType.location:
-                            // TODO: Handle this case.
+                              searchNotifier.searchWithLocation(
+                                  searchController.text);
+                              break;
                             case SearchType.category:
-                            // TODO: Handle this case.
+                              searchNotifier.searchWithCategory(
+                                  searchController.text);
                           }
                         },
                         width: 120.w,

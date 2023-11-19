@@ -53,14 +53,14 @@ class HomeScreen extends HookWidget {
                             mainAxisSpacing: 10,
                             children: searchTypes
                                 .map(
-                                  (e) => SquareTileWidget(
+                                  (value) => SquareTileWidget(
                                     onTap: () => Navigator.pushNamed(
                                       context,
-                                      e['route'] as String,
-                                      arguments: e['searchType'],
+                                      value['route'] as String,
+                                      arguments: value['searchType'],
                                     ),
-                                    icon: e['icon'] as IconData?,
-                                    name: 'By ${e['name']}',
+                                    icon: value['icon'] as IconData?,
+                                    name: 'By ${value['name']}',
                                   ),
                                 )
                                 .toList(),

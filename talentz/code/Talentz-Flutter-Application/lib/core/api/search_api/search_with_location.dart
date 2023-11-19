@@ -3,8 +3,8 @@ import 'package:dio/dio.dart';
 import '../../../constants/api_const/api_const.dart';
 import '../../interceptor/app_dio.dart';
 
-class SearchWithNameApi {
-  Future searchWithName(String name) async {
+class SearchWithLocationApi {
+  Future searchWithLocation(String name) async {
     const String subUrl = "/search";
     const String uri = AppAPI.baseUrl + subUrl;
     final bodyData = {
@@ -24,25 +24,28 @@ class SearchWithNameApi {
       },
       "message": {
         "intent": {
-          "item": {
-            "descriptor": {"name": name}
+          "location": {
+            "id": "1",
+            "city": {
+              "name": name
+            }
           }
         }
       }
     };
 
     final response = await Api().dio.post(
-          uri,
-          data: bodyData,
-          options: Options(
-            headers: {
-              "accept": "*/*'",
-              "Accept-Encoding": "gzip, deflate, br",
-              "Connection": "keep-alive"
-            },
-            contentType: 'application/json',
-          ),
-        );
+      uri,
+      data: bodyData,
+      options: Options(
+        headers: {
+          "accept": "*/*'",
+          "Accept-Encoding": "gzip, deflate, br",
+          "Connection": "keep-alive"
+        },
+        contentType: 'application/json',
+      ),
+    );
 
     final statusCode = response.statusCode;
 
