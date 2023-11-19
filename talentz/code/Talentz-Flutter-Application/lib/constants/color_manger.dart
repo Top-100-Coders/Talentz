@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 
-
-
 import '../extension/color_extension.dart';
 
-
-
-
 class ColorManager {
-
   static Color primaryLight = HexColor.fromHex("#2A4369");
   static Color onPrimaryLight = HexColor.fromHex("#11A89C");
   static Color onSecondary = HexColor.fromHex("#D6FF64");
@@ -16,7 +10,7 @@ class ColorManager {
   static Color onError = HexColor.fromHex("#e61f34");
   static Color surface = HexColor.fromHex("#424242");
   static Color onSurface = HexColor.fromHex("#424242");
-  static Color surfaceLight =   HexColor.fromHex("#FFA001");
+  static Color surfaceLight = HexColor.fromHex("#FFA001");
   static Color onSurfaceLight = HexColor.fromHex("#FFA001");
   static Color background = HexColor.fromHex("#303030");
   static Color onBackground = HexColor.fromHex("#303030");
@@ -32,4 +26,12 @@ class ColorManager {
   static Color filledColor = HexColor.fromHex("#F5F6FA");
   static Color filledColor2 = HexColor.fromHex("#d3d7e8");
 
+  static const darkBg = Color(0XFF060817);
+  static const text = Color.fromRGBO(255, 255, 255, 0.9);
+
+  // Gradients
+
+  static LinearGradient primaryH = LinearGradient(
+    colors: [primaryLight, onPrimaryLight],
+  );
 }

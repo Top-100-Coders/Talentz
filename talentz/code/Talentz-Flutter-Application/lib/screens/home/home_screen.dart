@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
-import 'package:talentz/constants/color_manger.dart';
 import 'package:talentz/constants/constants.dart';
-import 'package:talentz/constants/font_manager.dart';
-import 'package:talentz/constants/style_manager.dart';
 import 'package:talentz/utils/search_types.dart';
 
 import '../../../constants/values_manger.dart';
@@ -13,7 +10,7 @@ import '../widget/main_app_bar_widget.dart';
 import '../widget/square_tile_widget.dart';
 
 class HomeScreen extends HookWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +40,10 @@ class HomeScreen extends HookWidget {
                       children: [
                         Text(
                           "Choose one of the\nfollowing ways to search",
-                          style: getBoldStyle(
-                              color: ColorManager.primaryLight,
-                              fontSize: FontSize.s20),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .copyWith(fontWeight: FontWeight.w500),
                         ),
                         kSizedBox20,
                         Expanded(

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:talentz/constants/constants.dart';
+import 'package:talentz/constants/values_manger.dart';
 import 'package:talentz/screens/widget/custom_button_widget.dart';
 import 'package:talentz/screens/widget/talents_list_view.dart';
 import 'package:talentz/utils/enums.dart';
@@ -24,8 +25,9 @@ class ListViewScreen extends HookWidget {
     final searchController = useTextEditingController();
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Search with name")),
+      appBar: AppBar(title: Text("Search with ${searchType.name}")),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           kSizedBox12,
           TextFormFieldCustom(
@@ -35,16 +37,20 @@ class ListViewScreen extends HookWidget {
           kSizedBox10,
           Consumer<SearchNotifier>(builder: (context, snapshot, _) {
             return snapshot.getIsLoading
-                ? const CircularProgressIndicator()
-                : CustomButton(
-                    onTap: () {
-                      context
-                          .read<SearchNotifier>()
-                          .searchWithSkillNotifier(searchController.text);
-                    },
-                    width: 120.w,
-                    isLight: false,
-                    text: "Search");
+                ? const Center(child: CircularProgressIndicator())
+                : Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: AppPadding.p20),
+                    child: CustomButton(
+                        onTap: () {
+                          context
+                              .read<SearchNotifier>()
+                              .searchWithSkillNotifier(searchController.text);
+                        },
+                        width: 120.w,
+                        isLight: false,
+                        text: "Search"),
+                  );
           }),
           // kSizedBox10,
           Consumer<SearchNotifier>(builder: (context, snapshot, _) {

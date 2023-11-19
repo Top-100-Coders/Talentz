@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:talentz/config/app_theme.dart';
 import 'package:talentz/constants/app_routes.dart';
 import 'package:talentz/provider/providers.dart';
 import 'package:talentz/utils/global_keys.dart';
@@ -11,7 +12,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -28,6 +29,8 @@ class _MyAppState extends State<MyApp> {
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (_, k) => MaterialApp(
+            theme: AppTheme.darkTheme,
+            themeMode: ThemeMode.dark,
             navigatorKey: navigatorKey,
             scaffoldMessengerKey: snackbarKey,
             debugShowCheckedModeBanner: false,

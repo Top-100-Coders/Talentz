@@ -8,11 +8,11 @@ import '../../constants/font_manager.dart';
 
 class SquareTileWidget extends HookWidget {
   const SquareTileWidget({
-    Key? key,
+    super.key,
     required this.onTap,
     required this.name,
     this.icon,
-  }) : super(key: key);
+  });
 
   final String name;
   final IconData? icon;
@@ -22,36 +22,25 @@ class SquareTileWidget extends HookWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Align(
-        alignment: Alignment.topRight,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16.r),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                ColorManager.primaryLight,
-                ColorManager.onPrimaryLight,
-              ],
-            ),
-          ),
-          child: Stack(
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16.r),
+          border: Border.all(color: ColorManager.onPrimaryLight),
+          color: ColorManager.white.withOpacity(0.05),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (icon != null) ...[
-                      Icon(icon, color: ColorManager.white, size: FontSize.s36),
-                      kSizedBox10,
-                    ],
-                    Text(
-                      name,
-                      style: const TextStyle(
-                          color: Colors.white, fontSize: FontSize.s16),
-                    ),
-                  ],
+              if (icon != null) ...[
+                Icon(icon, color: ColorManager.text, size: FontSize.s36),
+                kSizedBox10,
+              ],
+              Text(
+                name,
+                style: const TextStyle(
+                  color: ColorManager.text,
+                  fontSize: FontSize.s16,
                 ),
               ),
             ],

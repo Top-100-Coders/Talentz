@@ -10,25 +10,24 @@ import '../../constants/style_manager.dart';
 import '../../constants/values_manger.dart';
 
 class MainAppBarWidget extends StatelessWidget {
-  const MainAppBarWidget({Key? key, required this.isFirstPage, this.title})
-      : super(key: key);
+  const MainAppBarWidget({super.key, required this.isFirstPage, this.title});
   final bool isFirstPage;
   final String? title;
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: ColorManager.white,
+        color: ColorManager.darkBg,
         borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(12.r),
             bottomLeft: Radius.circular(12.r)),
-        boxShadow: [
-          BoxShadow(
-            color: ColorManager.grey5,
-            offset: const Offset(0.0, 1.0), //(x,y)
-            blurRadius: 4.0,
-          ),
-        ],
+        // boxShadow: [
+        //   BoxShadow(
+        //     color: ColorManager.grey5,
+        //     offset: const Offset(0.0, 1.0), //(x,y)
+        //     blurRadius: 4.0,
+        //   ),
+        // ],
       ),
       height: 90.h,
       child: Padding(
@@ -43,7 +42,8 @@ class MainAppBarWidget extends StatelessWidget {
                         InkWell(
                           child: CircleAvatar(
                             radius: 40.r,
-                            backgroundColor: ColorManager.grey5,
+                            backgroundColor:
+                                ColorManager.white.withOpacity(0.2),
                             child: Center(
                               child: Lottie.asset(ImageAssets.personJson,
                                   height: 60.h, animate: true),
@@ -54,9 +54,9 @@ class MainAppBarWidget extends StatelessWidget {
                         kSizedW10,
                         Flexible(
                           child: Text(
-                            "Howdy, Ashif!!",
+                            "Howdy, Howdy!!",
                             style: getBoldStyle(
-                                color: ColorManager.primaryLight,
+                                color: ColorManager.text,
                                 fontSize: FontSize.s20),
                             overflow: TextOverflow.ellipsis,
                           ),
