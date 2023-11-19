@@ -43,9 +43,21 @@ class ListViewScreen extends HookWidget {
                         const EdgeInsets.symmetric(horizontal: AppPadding.p20),
                     child: CustomButton(
                         onTap: () {
-                          context
-                              .read<SearchNotifier>()
-                              .searchWithSkillNotifier(searchController.text);
+                          final searchNotifier = context.read<SearchNotifier>();
+                          switch (searchType) {
+                            case SearchType.name:
+                              searchNotifier
+                                  .searchWithName(searchController.text);
+                              break;
+                            case SearchType.skill:
+                              searchNotifier.searchWithSkillNotifier(
+                                  searchController.text);
+                              break;
+                            case SearchType.location:
+                            // TODO: Handle this case.
+                            case SearchType.category:
+                            // TODO: Handle this case.
+                          }
                         },
                         width: 120.w,
                         isLight: false,
