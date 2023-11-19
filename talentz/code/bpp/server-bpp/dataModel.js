@@ -1,4 +1,4 @@
-let skillData = [
+let sampleData = [
   {
     id: 1,
     name: "John Doe",
@@ -123,11 +123,18 @@ let skillData = [
 
 export const getData = (param) => {
   let data = [];
-  skillData.filter((val, index) => {
-    if (val.skills.includes(param)) {
-      return (data = [...data, val]);
+
+  sampleData.filter((val, index) => {
+    if (Array.isArray(param)) {
+      if (param.some((element) => val.skills.includes(element.value))) {
+        return (data = [...data, val]);
+      }
+    } else {
+      if (param === val.location) {
+        return (data = [...data, val]);
+      }
     }
   });
   return data;
 };
-
+//console.log(getData([{ value: "Django" }, { value: "Bootstrap" }]));

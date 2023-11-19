@@ -1,6 +1,7 @@
 import express from "express";
 import { getData } from "./dataModel.js";
 const app = express();
+const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -31,18 +32,28 @@ let data = {
     catalog: {},
   },
 };
-
+let queryTypes
 app.post("/dsep/search", (req, res) => {
-  console.log(req.query.skillType);
-  if (req.query.skillType) {
-    let userData = getData(req.query.skillType);
+ // console.log(req.body.message.intent.item, "body");
+  if (req.body?.message?.intent?.item?.tags[0]?.list) {
+    queryTypes =  req.body.message.intent.item.tags[0].list
+  }
+  if (req.body?.message?.intent?.location) {
+   
+    queryTypes=req.body?.message?.intent?.location?.city?.name 
+    console.log('its',queryTypes);
+  }
+  
+  console.log(queryTypes);
+  if (queryTypes) {
+    let userData = getData(queryTypes);
     data.message.catalog.users = userData;
-    console.log(data);
+    console.log(data.message.catalog);
     res.json(data);
   } else {
     let noData = ["no users"];
-    data.message.catalog.users = noData;
-    res.json("no data");
+    data.message.catalog = noData;
+    res.json(data);
   }
 });
-app.listen(3000, () => console.log("running"));
+app.listen(PORT, () => console.log(`server listening in ${PORT}`));
