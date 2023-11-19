@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:talentz/utils/global_keys.dart';
 
 import '../../constants/api_const/api_const.dart';
-import '../../main.dart';
 import 'auth_interceptor.dart';
 
 class Api {
@@ -20,13 +20,13 @@ class Api {
     var dio = Dio();
     dio.options.baseUrl = AppAPI.baseUrl;
     dio.interceptors
-    ..add(LogInterceptor(
-        responseBody: true,
-        error: true,
-        requestHeader: false,
-        responseHeader: false,
-        request: false,
-        requestBody: true))
+      ..add(LogInterceptor(
+          responseBody: true,
+          error: true,
+          requestHeader: false,
+          responseHeader: false,
+          request: false,
+          requestBody: true))
       ..add(AuthInterceptor(dio))
       ..add(AppInterceptors(dio));
 
@@ -48,27 +48,32 @@ class AppInterceptors extends Interceptor {
         switch (err.response?.statusCode) {
           case 400:
             const SnackBar snackBar = SnackBar(
-                backgroundColor: Colors.red, content: Text("Something went wrong 400"));
+                backgroundColor: Colors.red,
+                content: Text("Something went wrong 400"));
             snackbarKey.currentState?.showSnackBar(snackBar);
             throw BadRequestException(err.requestOptions);
           case 401:
             const SnackBar snackBar = SnackBar(
-                backgroundColor: Colors.red, content: Text("Something went wrong 401"));
+                backgroundColor: Colors.red,
+                content: Text("Something went wrong 401"));
             snackbarKey.currentState?.showSnackBar(snackBar);
             throw UnauthorizedException(err.requestOptions);
           case 404:
             const SnackBar snackBar = SnackBar(
-                backgroundColor: Colors.red, content: Text("Something went wrong 404"));
+                backgroundColor: Colors.red,
+                content: Text("Something went wrong 404"));
             snackbarKey.currentState?.showSnackBar(snackBar);
             throw NotFoundException(err.requestOptions);
           case 409:
             const SnackBar snackBar = SnackBar(
-                backgroundColor: Colors.red, content: Text("Something went wrong 409"));
+                backgroundColor: Colors.red,
+                content: Text("Something went wrong 409"));
             snackbarKey.currentState?.showSnackBar(snackBar);
             throw ConflictException(err.requestOptions);
           case 500:
             const SnackBar snackBar = SnackBar(
-                backgroundColor: Colors.red, content: Text("Something went wrong 509"));
+                backgroundColor: Colors.red,
+                content: Text("Something went wrong 509"));
             snackbarKey.currentState?.showSnackBar(snackBar);
             throw InternalServerErrorException(err.requestOptions);
         }
@@ -77,7 +82,8 @@ class AppInterceptors extends Interceptor {
         break;
       case DioExceptionType.unknown:
         const SnackBar snackBar = SnackBar(
-            backgroundColor: Colors.red, content: Text("No Internet Connection"));
+            backgroundColor: Colors.red,
+            content: Text("No Internet Connection"));
         snackbarKey.currentState?.showSnackBar(snackBar);
       case DioExceptionType.badCertificate:
         const SnackBar snackBar = SnackBar(
@@ -88,7 +94,7 @@ class AppInterceptors extends Interceptor {
             backgroundColor: Colors.red, content: Text("Connection Timeout"));
         snackbarKey.currentState?.showSnackBar(snackBar);
       case DioExceptionType.sendTimeout:
-          const SnackBar snackBar = SnackBar(
+        const SnackBar snackBar = SnackBar(
             backgroundColor: Colors.red, content: Text("Send Timeout Error"));
         snackbarKey.currentState?.showSnackBar(snackBar);
       case DioExceptionType.connectionError:
@@ -160,5 +166,5 @@ class DeadlineExceededException extends DioException {
   @override
   String toString() {
     return 'The connection has timed out, please try again.';
-   }
+  }
 }

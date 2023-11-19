@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:talentz/screens/auth/login_screen.dart';
+import 'package:talentz/utils/global_keys.dart';
 
-import '../../constants/app_routes.dart';
 import '../../constants/string_manager.dart';
-import '../../main.dart';
 import '../service/shared_preferance_service.dart';
 
 class AuthInterceptor extends Interceptor {
@@ -47,7 +47,7 @@ class AuthInterceptor extends Interceptor {
           backgroundColor: Colors.red, content: Text("Session Expired"));
       snackbarKey.currentState?.showSnackBar(snackBar);
       navigatorKey.currentState!
-          .pushNamedAndRemoveUntil(loginRoute, (route) => false);
+          .pushNamedAndRemoveUntil(LoginScreen.routeName, (route) => false);
       // if (await refreshToken()) {
       //   print("Token expired checked");
       //   return handler.resolve(await _retry(err.requestOptions));
