@@ -14,14 +14,16 @@ const initial_prompt = [
 const model = "gpt-3.5-turbo-1106";
 
 function getQuestion(request) {
-  return `One of our clients has a request. It is given in the next line. Suggest him what all domains/skills he should be looking for when hiring developers to build his dream. Return your response in JSON. Return the various domains in the key "domains". The values should be sorted by importance in ascending order:
-  "${request}"`
+  return `One of our clients has a request. It is given enclosed in triple quotes("""). Suggest him what all domains/skills he should be looking for when hiring developers to build his dream. Return your response in JSON. Return the various domains in the key "domains". The values should be sorted by importance in ascending order:
+  """
+  ${request}
+  """`
 };
 
 export async function getDomains(request) {
   // Basic prompt injection defence
-  if(request.includes("\"") || request.includes("\n") || request.includes("'")) {
-    throw "Possibly malicious input. Remove \", \' and newlines from your input";
+  if(request.includes("\"\"\"")) {
+    throw "Possibly malicious input detected. Remove triple quotes from your input";
   }
 
   const completion = await openai.chat.completions.create({
