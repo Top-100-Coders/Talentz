@@ -59,6 +59,7 @@ class HomeScreen extends HookWidget {
                                     onTap: () => Navigator.pushNamed(
                                       context,
                                       e['route'] as String,
+                                      arguments: e['searchType'],
                                     ),
                                     icon: e['icon'] as IconData?,
                                     name: 'By ${e['name']}',

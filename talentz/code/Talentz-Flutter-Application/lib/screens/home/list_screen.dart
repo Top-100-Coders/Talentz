@@ -6,13 +6,16 @@ import 'package:provider/provider.dart';
 import 'package:talentz/constants/constants.dart';
 import 'package:talentz/screens/widget/custom_button_widget.dart';
 import 'package:talentz/screens/widget/talents_list_view.dart';
+import 'package:talentz/utils/enums.dart';
 
 import '../../constants/asset_manager.dart';
 import '../../core/notifier/search_notifier/search_notifier.dart';
 import '../widget/text_field_widget.dart';
 
 class ListViewScreen extends HookWidget {
-  const ListViewScreen({super.key});
+  const ListViewScreen({super.key, required this.searchType});
+
+  final SearchType searchType;
 
   static const routeName = "/list-view";
 
@@ -27,7 +30,7 @@ class ListViewScreen extends HookWidget {
           kSizedBox12,
           TextFormFieldCustom(
               controller: searchController,
-              hintName: "Type a name",
+              hintName: "Type a ${searchType.name}",
               icon: Icons.search_rounded),
           kSizedBox10,
           Consumer<SearchNotifier>(builder: (context, snapshot, _) {

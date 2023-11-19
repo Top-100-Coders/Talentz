@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:talentz/constants/style_manager.dart';
 import 'package:talentz/constants/values_manger.dart';
+import 'package:talentz/utils/global_keys.dart';
+
 import 'color_manger.dart';
 
 const kDivider = Divider(
@@ -111,11 +110,9 @@ SizedBox kSizedW100 = SizedBox(
 );
 
 //SnackBar
-void showSnackBar(
-    {required BuildContext context,
-    required String text,
-    Color color = Colors.red}) {
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+void showSnackBar({required String text, Color? color}) {
+  snackbarKey.currentState!.showSnackBar(
+    SnackBar(
       behavior: SnackBarBehavior.floating,
       backgroundColor: color,
       margin: const EdgeInsets.symmetric(
@@ -123,6 +120,7 @@ void showSnackBar(
       content: Text(
         text,
         style: getBoldStyle(color: ColorManager.white),
-      )));
+      ),
+    ),
+  );
 }
-

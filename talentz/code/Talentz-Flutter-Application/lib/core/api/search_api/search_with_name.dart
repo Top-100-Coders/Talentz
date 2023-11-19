@@ -4,16 +4,16 @@ import '../../../constants/api_const/api_const.dart';
 import '../../interceptor/app_dio.dart';
 
 class SearchWithNameApi {
-  Future searchWithName({required String skill}) async {
+  Future searchWithName(String name) async {
     const String subUrl = "/search";
     const String uri = AppAPI.baseUrl + subUrl;
     final bodyData = {
       "context": {
-        "domain": "dsep:talent",
+        "domain": "{{dsep:talent}}",
         "action": "search",
-        "version": "1.1.0",
-        "bap_id": "mulearn-hackninjas-bap",
-        "bap_uri": "https://mulearn-hackninjas-bap.loca.lt/",
+        "version": "{{core_version}}",
+        "bap_id": "{{bap_id}}",
+        "bap_uri": "{{bap_uri}}",
         "location": {
           "country": {"name": "India", "code": "IND"},
           "city": {"name": "Bangalore", "code": "std:080"}
@@ -25,20 +25,7 @@ class SearchWithNameApi {
       "message": {
         "intent": {
           "item": {
-            "tags": [
-              {
-                "descriptor" : {
-                  "name" : "skills"
-                },
-                "list" : [
-                  {
-                    "value" : skill
-                  },
-
-                ]
-
-              }
-            ]
+            "descriptor": {"name": name}
           }
         }
       }
