@@ -121,7 +121,7 @@ let sampleData = [
   },
 ];
 
-export const getData = (param) => {
+export const getData = (param,paramType) => {
   let data = [];
 
   sampleData.filter((val, index) => {
@@ -130,7 +130,7 @@ export const getData = (param) => {
         return (data = [...data, val]);
       }
     } else {
-      if (param === val.location) {
+      if (param === val[paramType]) {
         return (data = [...data, val]);
       }
     }

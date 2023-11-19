@@ -32,23 +32,27 @@ let data = {
     catalog: {},
   },
 };
-let queryTypes;
+let queryValue;
+let queryType
 app.post("/dsep/search", (req, res) => {
   // console.log(req.body.message.intent.item, "body");
   if (req.body?.message?.intent?.item?.tags[0]?.list) {
-    queryTypes = req.body.message.intent.item.tags[0].list;
+    queryValue = req.body.message.intent.item.tags[0].list;
+    queryType='array'
   }
   if (req.body?.message?.intent?.location) {
-    queryTypes = req.body?.message?.intent?.location?.city?.name;
-    console.log("its", queryTypes);
+    queryValue = req.body?.message?.intent?.location?.city?.name;
+    queryType='location'
+    console.log("its", queryValue);
   }
-  // if (req.body?.message?.intent?.item?.descriptor?.name) {
-  //   queryTypes=req.body?.message?.intent?.item?.descriptor?.name
-  // }
+  if (req.body?.message?.intent?.item?.descriptor?.name) {
+    queryValue=req.body?.message?.intent?.item?.descriptor?.name
+    queryType='name'
+  }
 
-  console.log(queryTypes);
-  if (queryTypes) {
-    let userData = getData(queryTypes);
+  console.log(queryValue);
+  if (queryValue) {
+    let userData = getData(queryValue,queryType);
     data.message.catalog.users = userData;
     console.log(data.message.catalog);
     res.json(data);
