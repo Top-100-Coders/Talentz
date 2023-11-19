@@ -1,3 +1,4 @@
+import fs from "fs";
 import express from "express";
 import { getData } from "./dataModel.js";
 const app = express();
@@ -5,44 +6,20 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//schema sample for on_search
-let data = {
-  context: {
-    domain: "dsep:talent",
-    action: "on_search",
-    version: "1.1.0",
-    bap_id: "mulearn-hackninjas-bap",
-    bap_uri: "https://mulearn-hackninjas-bap.loca.it",
-    location: {
-      country: {
-        name: "India",
-        code: "IND",
-      },
-      city: {
-        name: "Bangalore",
-        code: "std:080",
-      },
-    },
-    timestamp: "2023-11-15T15:38:16.226Z",
-    message_id: "64109204-bdff-4af6-a76b-5a33f8aa8675",
-    transaction_id: "bdb5ba09-2241-4f00-b434-73466cd06228",
-  },
-  message: {
-    catalog: {},
-  },
-};
+const mock_data = JSON.parse(fs.readFileSync("../../mock-data.json"));
 
 app.post("/dsep/search", (req, res) => {
-  console.log(req.query.skillType);
-  if (req.query.skillType) {
-    let userData = getData(req.query.skillType);
-    data.message.catalog.users = userData;
-    console.log(data);
-    res.json(data);
-  } else {
-    let noData = ["no users"];
-    data.message.catalog.users = noData;
-    res.json("no data");
+  if(req.query.q === undefined) {
+    res.status(400);
+    res.send("Error\n");
+    return;
   }
+
+  const techs = (req.query.q instanceof Array) ? req.query.q : [req.query.q];
+  console.log(techs);
+
+  // TODO: get mock_data from BAP
+  let userData = getData(techs, mock_data);
+  res.json(userData);
 });
-app.listen(3000, () => console.log("running"));
+app.listen(3000, () => console.log("Running on port 3000"));
