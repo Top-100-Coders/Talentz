@@ -3,11 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:talentz/constants/app_routes.dart';
 import 'package:talentz/provider/providers.dart';
-
-//delete this whenever you got context idea
-final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-final GlobalKey<ScaffoldMessengerState> snackbarKey =
-    GlobalKey<ScaffoldMessengerState>();
+import 'package:talentz/utils/global_keys.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,9 +31,7 @@ class _MyAppState extends State<MyApp> {
             navigatorKey: navigatorKey,
             scaffoldMessengerKey: snackbarKey,
             debugShowCheckedModeBanner: false,
-            routes: routes,
-            initialRoute: loginRoute,
-            // initialRoute: loginRoute,
+            onGenerateRoute: AppRouter.onGenerateRoute,
           ),
         );
       }),

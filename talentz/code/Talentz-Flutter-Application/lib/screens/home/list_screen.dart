@@ -8,11 +8,13 @@ import 'package:talentz/screens/widget/custom_button_widget.dart';
 import 'package:talentz/screens/widget/talents_list_view.dart';
 
 import '../../constants/asset_manager.dart';
-import '../../core/notifier/search_notifier/searchWithName.dart';
+import '../../core/notifier/search_notifier/search_notifier.dart';
 import '../widget/text_field_widget.dart';
 
 class ListViewScreen extends HookWidget {
   const ListViewScreen({super.key});
+
+  static const routeName = "/list-view";
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +35,9 @@ class ListViewScreen extends HookWidget {
                 ? const CircularProgressIndicator()
                 : CustomButton(
                     onTap: () {
-                      context.read<SearchNotifier>().searchWithNameNotifier(
-                          context: context, skill: searchController.text);
+                      context
+                          .read<SearchNotifier>()
+                          .searchWithSkillNotifier(searchController.text);
                     },
                     width: 120.w,
                     isLight: false,

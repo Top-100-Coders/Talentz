@@ -2,33 +2,27 @@ import 'package:flutter/material.dart';
 
 import 'home/home_screen.dart';
 
-
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
+
+  static const routeName = '/main';
 
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-
-
-
   int index = 0;
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-    });
-super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {});
+    super.initState();
   }
-
 
   final pages = <Widget>[
     const HomeScreen(),
   ];
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +57,6 @@ super.initState();
   void onChangedTab(int index) {
     setState(() {
       this.index = index;
- });
-   }
+    });
+  }
 }

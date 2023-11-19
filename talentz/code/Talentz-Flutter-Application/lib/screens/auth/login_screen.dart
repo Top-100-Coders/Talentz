@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:talentz/constants/app_routes.dart';
 import 'package:talentz/constants/color_manger.dart';
 import 'package:talentz/constants/constants.dart';
 import 'package:talentz/constants/font_manager.dart';
 import 'package:talentz/constants/style_manager.dart';
 import 'package:talentz/constants/values_manger.dart';
+import 'package:talentz/screens/main_screen.dart';
+import 'package:talentz/utils/global_keys.dart';
 
 import '../../constants/asset_manager.dart';
 import '../widget/custom_button_widget.dart';
 
 class LoginScreen extends HookWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  static const routeName = "/login";
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +69,8 @@ class LoginScreen extends HookWidget {
                         child: CustomButton(
                           text: "Login",
                           onTap: () async {
-                            Navigator.pushReplacementNamed(context, mainRoute);
+                            navigatorKey.currentState!
+                                .pushReplacementNamed(MainScreen.routeName);
                           },
                           width: 120.w,
                           isLight: false,
