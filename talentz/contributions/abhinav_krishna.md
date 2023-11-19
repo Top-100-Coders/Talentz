@@ -1,4 +1,4 @@
 # Contributions to Skillz
-In this app I worked on the backend. I set up some things to mock MuLearn data while the MuLearn Beckn API was being built and set up the backend afterwards. I managed to learn how the API works and I helped my fellow programmers in setting up the developer environment.
+This is the first time I'm coming to a Hackathon. In this app I worked on the backend. I set up some things to mock MuLearn data while the Backend API was being built, though unlike others I tried to remain as close as possible to Beckn specifications. I hand-beckenified `mock-data.json` from the (actual)Mulearn API. I also set up the ChatGPT integration that allows new entrepreneurs and small business owners to set up a dev team without much technical knowledge. I managed to learn how the API works and I helped my fellow programmers in setting up the developer environment and in understanding its API.
 
-Since Beckn had little documentation, it was a team effort in trying to work with this API, we had work together to share any knowledge we had. This was extremly interesting.
+During this time I also figured out how the BPP webhook works and set up a small custom webhook, though far from complete.
