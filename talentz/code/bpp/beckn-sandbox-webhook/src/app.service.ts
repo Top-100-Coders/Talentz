@@ -7,11 +7,11 @@ dotenv.config();
 @Injectable()
 export class AppService {
   async getSandBoxDataService(body: any) {
-    console.log(body.message.intent.item.tags);
-    let skillType = body.message.intent.item.tags[0].list[0].value
-    //let skillType=body.message.intent.item.tags[1].list
+   console.log(body.message);
+    //let skillType = body.message.intent.item.tags[0].list[0].value
+   // let skillType=body.message.intent.item.tags[1].list
        
-
+ 
     try {
       if (body.context.action.includes("on_")) {
         return;
@@ -28,7 +28,8 @@ export class AppService {
       ) {
         sandboxUrl = `${process.env.SANDBOXURL}/dsep/${
           body.context.action
-        }/?skillType=${skillType}`;
+        }`
+        //?skillType=${skillType}`;
       } else if (body.context.domain.includes("dent")) {
         sandboxUrl = `${process.env.SANDBOXURL}/dent/${body.context.action}`;
       } else if (body.context.domain.includes("dhp")) {
