@@ -13,5 +13,7 @@ class AppTheme {
           elevation: 0,
           scrolledUnderElevation: 0,
         ),
+        progressIndicatorTheme:
+            ProgressIndicatorThemeData(color: ColorManager.onPrimaryLight),
       );
 }

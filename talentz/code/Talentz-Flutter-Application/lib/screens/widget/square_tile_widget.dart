@@ -22,6 +22,7 @@ class SquareTileWidget extends HookWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
+      borderRadius: BorderRadius.circular(16.r),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.r),

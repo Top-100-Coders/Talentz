@@ -27,6 +27,7 @@ class ColorManager {
   static Color filledColor2 = HexColor.fromHex("#d3d7e8");
 
   static const darkBg = Color(0XFF060817);
+  static const darkSurface = Color.fromARGB(255, 11, 15, 42);
   static const text = Color.fromRGBO(255, 255, 255, 0.9);
 
   // Gradients
