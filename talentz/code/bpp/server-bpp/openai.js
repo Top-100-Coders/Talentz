@@ -14,7 +14,7 @@ const initial_prompt = [
 const model = "gpt-3.5-turbo-1106";
 
 function getQuestion(request) {
-  return `One of our clients has a request. It is given in the next line. Suggest him what all domains/skills he should be looking for when hiring developers to build his dream. Return your response in JSON. Return the various domains in the key "domains":
+  return `One of our clients has a request. It is given in the next line. Suggest him what all domains/skills he should be looking for when hiring developers to build his dream. Return your response in JSON. Return the various domains in the key "domains". The values should be sorted by importance in ascending order:
   "${request}"`
 };
 

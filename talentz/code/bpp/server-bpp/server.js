@@ -19,18 +19,18 @@ app.get("/domains", async (req, res) => {
   const query = req.query.q;
   res.json(await getDomains(query));
 })
-app.post("/dsep/search", (req, res) => {
-  if(req.query.q == undefined) {
+
+app.get("/search", async (req, res) => {
+  const query = req.query.q;
+  if(typeof query !== "string") {
     res.status(400);
-    res.send("Error\n");
+    res.send("Argument `q` is either missing or not a string");
     return;
   }
-
-  const techs = (req.query.q instanceof Array) ? req.query.q : [req.query.q];
-  console.log(techs);
+  const domains = await getDomains(query);
 
   // TODO: get mock_data from BAP
-  let userData = getData(techs, mock_data);
+  let userData = getData(domains, mock_data);
   res.json(userData);
 });
 app.listen(3000, () => console.log("Running on port 3000"));

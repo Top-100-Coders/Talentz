@@ -29,12 +29,35 @@ let template = {
   },
 };
 
+function scoreCoder(coder, techs) {
+  const skills = coder.categories;
+  // Note: techs is returned by OpenAI. It is sorted in ascending order of importance
+  return techs.reduce(
+    (acc, t, i) =>
+      acc + skills.includes(t) * (i + 1),
+    0,
+  )
+}
+
 export function getData(techs, from) {
-  const userlist = from.message.catalog['bpp/providers'];
+  const coders = from.message.catalog['bpp/providers'];
+
+  // Sort by score
+  const scored = coders.map((coder, i) =>
+    [coder, scoreCoder(coder, techs)]);
+  scored.sort(([a_c, a], [b_c, b]) => a < b ? 1 : (a === b ? 0 : -1));
+
   let res = structuredClone(template);
-  res.message.catalog['bpp/providers'] =
-    userlist.filter(u =>
-      techs.every(t => u.categories.includes(t)));
+  res.message.catalog['bpp/providers'] = scored
+    .map(([coder, score]) => {
+      return {
+        ...coder,
+        tags: {
+          ...coder.tags,
+          score: score,
+        },
+      };
+    })
+    .filter(coder => coder.tags.score > 0);
   return res;
 };
-
