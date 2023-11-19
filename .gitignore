@@ -9,4 +9,16 @@ talentz/code/bap/*/config/default.yml
 talentz/code/bap/*/.ds_store
 talentz/code/bap/*/docker/data/
 talentz/code/bap/*/data
-
+#bpp ignores
+talentz/code/bpp/*/*/node_modules
+talentz/code/bpp/*/node_modules
+talentz/code/bpp/*/*/dist/
+talentz/code/bpp/*/*/!config/config-sample.yaml
+talentz/code/bpp/*/*/!config/old-config-sample.yaml
+talentz/code/bpp/*/*/!config/new-config-sample.yaml
+talentz/code/bpp//*/logs/
+talentz/code/bpp/*/*/*.pem
+talentz/code/bpp/*/*/config/default.yml
+talentz/code/bpp/*/*/.ds_store
+talentz/code/bpp/*/*/docker/data/
+talentz/code/bpp/*/*/data
