@@ -1,0 +1,2 @@
+- I worked on configuring BPP and BAP of beckn protocol. I had to go through lots of challenges before getting a working BPP (Beckn Provider Platform) Running. I also worked in collaboration with my team members to test and integrate Beckn protocol with all other pieces of the application.
+- I created a NextJS Application from which we can interact with MuLearn Data using Beckn protocol that we configured.
