@@ -52,18 +52,24 @@ class ListViewScreen extends HookWidget {
                         text: "Search"),
                   );
           }),
-          // kSizedBox10,
-          Consumer<SearchNotifier>(builder: (context, snapshot, _) {
-            final data = snapshot.getResultModel?.users;
-            return Expanded(
-              child: data != null && data.isNotEmpty
-                  ? TalentsListView(data: data)
-                  : Center(
-                      child: Lottie.asset(ImageAssets.loaderJson,
-                          height: 140.h, repeat: false, animate: true),
-                    ),
-            );
-          })
+          Consumer<SearchNotifier>(
+            builder: (_, snapshot, __) {
+              final data = snapshot.getResultModel?.users;
+
+              return Expanded(
+                child: data != null && data.isNotEmpty
+                    ? TalentsListView(data: data)
+                    : Center(
+                        child: Lottie.asset(
+                          ImageAssets.loaderJson,
+                          height: 140.h,
+                          repeat: false,
+                          animate: true,
+                        ),
+                      ),
+              );
+            },
+          )
         ],
       ),
     );
