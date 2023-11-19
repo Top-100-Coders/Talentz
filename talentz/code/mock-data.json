@@ -1,0 +1,324 @@
+{
+  "context": {
+    "domain": "dsep:talent",
+    "country": "IND",
+    "action": "on_search",
+    "core_version": "0.9.4"
+  },
+  "message": {
+    "catalog": {
+      "bpp/descriptor": {
+        "name": "Coders"
+      },
+      "bpp/providers": [
+        {
+          "id": "1026d87e-2483-491f-a01a-e3ce310fae08",
+          "tags": {
+            "muid": "mohammedsalihm@mulearn",
+            "karma": 1000
+          },
+          "descriptor": "Mohammed Salih M",
+          "categories": [
+            "Ai",
+            "Web Development",
+            "3D Animation and Game Development",
+            "Internet Of Things (IOT) And Robotics",
+            "Mobile Development"
+          ]
+        },
+        {
+          "id": "02944a89-52de-4df1-ad21-3b93f52af5d9",
+          "tags": {
+            "muid": "albinmathewsjoseph@mulearn",
+            "karma": 1000
+          },
+          "descriptor": "Albin Mathews Joseph",
+          "categories": [
+            "Web Development",
+            "Blockchain",
+            "Ai"
+          ]
+        },
+        {
+          "id": "d27a6a76-0d55-4a71-aece-d7a4276c6735",
+          "tags": {
+            "muid": "aswinharish@mulearn",
+            "karma": 1000
+          },
+          "descriptor": "Aswin Harish",
+          "categories": [
+            "Ai",
+            "Cyber Security",
+            "Web Development"
+          ]
+        },
+        {
+          "id": "1ba52e62-3def-47bd-b5d0-6e5cca1776d4",
+          "tags": {
+            "muid": "blessonkarikulammalayiltomy@mulearn",
+            "karma": 800
+          },
+          "descriptor": "Blesson Karikulammalayil Tomy",
+          "categories": [
+            "Entrepreneurship",
+            "Ai",
+            "Cyber Security",
+            "Strategic Leadership",
+            "Web Development"
+          ]
+        },
+        {
+          "id": "0790969c-e97d-427d-a630-3f6127ef248f",
+          "tags": {
+            "muid": "arjunms@mulearn",
+            "karma": 800
+          },
+          "descriptor": "Arjun M S",
+          "categories": [
+            "Blockchain",
+            "Product Management",
+            "Ai"
+          ]
+        },
+        {
+          "id": "bec51fcd-6e34-4f5b-be6c-82bb2cc54633",
+          "tags": {
+            "muid": "sandrama@mulearn",
+            "karma": 800
+          },
+          "descriptor": "SANDRA M A",
+          "categories": [
+            "Ai",
+            "Blockchain",
+            "Competitive Coding"
+          ]
+        },
+        {
+          "id": "5cdfce41-de03-4c1b-b93c-30e24fa933f8",
+          "tags": {
+            "muid": "anjalirajendran@mulearn",
+            "karma": 800
+          },
+          "descriptor": "Anjali Rajendran",
+          "categories": [
+            "Web Development",
+            "Product Management",
+            "Ai",
+            "Internet Of Things (IOT) And Robotics",
+            "Mobile Development"
+          ]
+        },
+        {
+          "id": "f887094d-a535-40f7-a7e6-85e943e435ef",
+          "tags": {
+            "muid": "mohammedhaseebkp@mulearn",
+            "karma": 800
+          },
+          "descriptor": "Mohammed Haseeb KP",
+          "categories": [
+            "Internet Of Things (IOT) And Robotics",
+            "Web Development",
+            "Ai"
+          ]
+        },
+        {
+          "id": "847ed034-c41f-4610-9d0f-e5b21f29f3da",
+          "tags": {
+            "muid": "aswingeorgethomas@mulearn",
+            "karma": 600
+          },
+          "descriptor": "ASWIN GEORGE THOMAS",
+          "categories": [
+            "Ui Ux",
+            "Ai",
+            "Mobile Development",
+            "Blockchain",
+            "Web Development"
+          ]
+        },
+        {
+          "id": "b789020f-4356-4fbe-a17e-edc40b95224a",
+          "tags": {
+            "muid": "fayaspa@mulearn",
+            "karma": 600
+          },
+          "descriptor": "Fayas P A",
+          "categories": [
+            "Cloud And Devops",
+            "Ai",
+            "Web Development"
+          ]
+        },
+        {
+          "id": "31d2ddfe-d67e-45fe-ac52-655f45874fee",
+          "tags": {
+            "muid": "arfazkhan@mulearn",
+            "karma": 400
+          },
+          "descriptor": "Arfaz Khan Hijas Khan",
+          "categories": [
+            "Web Development",
+            "Ui Ux",
+            "Cyber Security"
+          ]
+        },
+        {
+          "id": "cde6dbf9-70bb-43b9-b2d8-933c31b29b34",
+          "tags": {
+            "muid": "mikhelvkuttickal@mulearn",
+            "karma": 200
+          },
+          "descriptor": "Mikhel V Kuttickal ",
+          "categories": [
+            "Ui Ux",
+            "No Or Low Code",
+            "Ai",
+            "Mobile Development",
+            "Web Development"
+          ]
+        },
+        {
+          "id": "42daf39b-7723-4701-a4bb-0962b4ebf3b9",
+          "tags": {
+            "muid": "sreenandankm@mulearn",
+            "karma": 200
+          },
+          "descriptor": "Sreenandan K M",
+          "categories": [
+            "Ui Ux",
+            "Mobile Development",
+            "Web Development"
+          ]
+        },
+        {
+          "id": "a06621e9-120a-4123-88fe-99a237a2ea53",
+          "tags": {
+            "muid": "nevinvadatte@mulearn",
+            "karma": 200
+          },
+          "descriptor": "Nevin V Adatte",
+          "categories": [
+            "Web Development",
+            "Internet Of Things (IOT) And Robotics",
+            "Ar Vr Mr"
+          ]
+        },
+        {
+          "id": "f08c8420-646c-4233-866b-e2f089700f2c",
+          "tags": {
+            "muid": "adithyaviswambharan@mulearn",
+            "karma": 200
+          },
+          "descriptor": "Adithya Viswambharan",
+          "categories": [
+            "Cyber Security",
+            "Mobile Development",
+            "Ai"
+          ]
+        },
+        {
+          "id": "d6f84c50-2a33-4fa0-a189-e4c6afaad17a",
+          "tags": {
+            "muid": "aashishvinu@mulearn",
+            "karma": 200
+          },
+          "descriptor": "Aashish Vinu",
+          "categories": [
+            "Cyber Security"
+          ]
+        },
+        {
+          "id": "2825e16d-74eb-44cb-a78d-08d31b44ce6d",
+          "tags": {
+            "muid": "shaznasadique@mulearn",
+            "karma": 200
+          },
+          "descriptor": "Shazna sadique",
+          "categories": [
+            "Web Development"
+          ]
+        },
+        {
+          "id": "7f071555-4c35-4f02-ab84-176afc306424",
+          "tags": {
+            "muid": "snithin@mulearn",
+            "karma": 200
+          },
+          "descriptor": "S Nithin",
+          "categories": [
+            "Product Management",
+            "Internet Of Things (IOT) And Robotics",
+            "Ai",
+            "Mobile Development",
+            "Web Development"
+          ]
+        },
+        {
+          "id": "89195160-73eb-436a-9a95-9c0503f63fee",
+          "tags": {
+            "muid": "muhammednayab@mulearn",
+            "karma": 200
+          },
+          "descriptor": "Muhammed Nayab",
+          "categories": [
+            "Blockchain",
+            "Internet Of Things (IOT) And Robotics",
+            "Web Development"
+          ]
+        },
+        {
+          "id": "f4cc3625-bc84-46ec-83e2-dd25667e1487",
+          "tags": {
+            "muid": "alfredjoedevasia@mulearn",
+            "karma": 200
+          },
+          "descriptor": "Alfred Joe devasia",
+          "categories": [
+            "Ai",
+            "Web Development",
+            "Ui Ux"
+          ]
+        },
+        {
+          "id": "71cf53ab-232e-444a-b1e7-b4feecd2df67",
+          "tags": {
+            "muid": "abdullahnabeel@mulearn",
+            "karma": 200
+          },
+          "descriptor": "Abdullah Nabeel",
+          "categories": [
+            "Web Development",
+            "Cyber Security",
+            "Ai"
+          ]
+        },
+        {
+          "id": "af9fc0e1-14c3-4984-bff9-0de7bf7b142d",
+          "tags": {
+            "muid": "aparnajiji@mulearn",
+            "karma": 200
+          },
+          "descriptor": "Aparna Jiji",
+          "categories": [
+            "Cyber Security",
+            "Mobile Development",
+            "Web Development"
+          ]
+        },
+        {
+          "id": "2925dc98-001b-420f-8c8d-8fd28693c558",
+          "tags": {
+            "muid": "akashrchandran@mulearn",
+            "karma": 200
+          },
+          "descriptor": "Akash R Chandran",
+          "categories": [
+            "Competitive Coding",
+            "Mobile Development",
+            "Web Development"
+          ]
+        }
+      ]
+    }
+  }
+}

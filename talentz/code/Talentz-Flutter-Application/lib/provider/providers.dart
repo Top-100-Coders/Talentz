@@ -1,10 +1,8 @@
-
-
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import '../core/notifier/search_notifier/searchWithName.dart';
-import 'general_notifier.dart';
 
+import '../core/notifier/search_notifier/search_notifier.dart';
+import 'general_notifier.dart';
 
 List<SingleChildWidget> providers = [...remoteProvider];
 
@@ -12,6 +10,4 @@ List<SingleChildWidget> providers = [...remoteProvider];
 List<SingleChildWidget> remoteProvider = [
   ChangeNotifierProvider(create: (_) => SearchNotifier()),
   ChangeNotifierProvider(create: (_) => GeneralNotifier()),
-
-
 ];

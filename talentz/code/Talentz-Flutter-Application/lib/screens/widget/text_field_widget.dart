@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constants/color_manger.dart';
 import '../../constants/style_manager.dart';
@@ -35,8 +36,7 @@ class TextFormFieldCustom extends StatelessWidget {
       this.onTap,
       this.isReadOnly = false,
       this.paddingWidth = AppPadding.p20,
-      Key? key})
-      : super(key: key);
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class TextFormFieldCustom extends StatelessWidget {
         readOnly: isReadOnly,
         onTap: onTap,
         enabled: isEnable,
-        style: getSemiBoldStyle(color: ColorManager.black),
+        style: getSemiBoldStyle(color: ColorManager.white),
         keyboardType: inputType,
         inputFormatters: inputFormatters,
         validator: validator ??
@@ -64,25 +64,23 @@ class TextFormFieldCustom extends StatelessWidget {
         enableSuggestions: isEditable,
         enableInteractiveSelection: isEditable,
         maxLength: maxLength,
+        cursorColor: ColorManager.onPrimaryLight,
         decoration: InputDecoration(
           floatingLabelStyle:
-              getSemiBoldStyle(color: ColorManager.primaryLight),
+              getSemiBoldStyle(color: ColorManager.onPrimaryLight),
           enabledBorder: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-            borderSide: BorderSide(color: ColorManager.primaryLight),
+            borderRadius: BorderRadius.circular(16.r),
+            borderSide: BorderSide(color: ColorManager.onPrimaryLight),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-            borderSide: BorderSide(color: ColorManager.primaryLight),
+            borderRadius: BorderRadius.circular(16.r),
+            borderSide: BorderSide(color: ColorManager.onPrimaryLight),
           ),
-          prefixIcon: Icon(
-            icon,
-            color: ColorManager.primaryLight,
-          ),
+          prefixIcon: Icon(icon, color: ColorManager.onPrimaryLight),
           // hintText: hintName,
           labelText: hintName,
-          labelStyle: getBoldStyle(color: ColorManager.primaryLight),
-          fillColor: ColorManager.white,
+          // labelStyle: getBoldStyle(color: ColorManager.primaryLight),
+          fillColor: ColorManager.darkBg,
           filled: true,
         ),
       ),

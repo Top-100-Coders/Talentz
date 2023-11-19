@@ -4,24 +4,40 @@
 
 import 'dart:convert';
 
-List<SkillsModel> skillsModelFromJson(String str) => List<SkillsModel>.from(json.decode(str).map((x) => SkillsModel.fromJson(x)));
+SkillsModel skillsModelFromJson(String str) => SkillsModel.fromJson(json.decode(str));
 
-String skillsModelToJson(List<SkillsModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String skillsModelToJson(SkillsModel data) => json.encode(data.toJson());
 
 class SkillsModel {
+  List<MoreSkill>? users;
+
+  SkillsModel({
+    this.users,
+  });
+
+  factory SkillsModel.fromJson(Map<String, dynamic> json) => SkillsModel(
+    users: json["users"] == null ? [] : List<MoreSkill>.from(json["users"]!.map((x) => MoreSkill.fromJson(x))),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "users": users == null ? [] : List<dynamic>.from(users!.map((x) => x.toJson())),
+  };
+}
+
+class MoreSkill {
   int? id;
   String? name;
   String? location;
   List<String>? skills;
 
-  SkillsModel({
+  MoreSkill({
     this.id,
     this.name,
     this.location,
     this.skills,
   });
 
-  factory SkillsModel.fromJson(Map<String, dynamic> json) => SkillsModel(
+  factory MoreSkill.fromJson(Map<String, dynamic> json) => MoreSkill(
     id: json["id"],
     name: json["name"],
     location: json["location"],
