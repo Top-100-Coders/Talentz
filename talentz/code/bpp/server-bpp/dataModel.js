@@ -1,4 +1,4 @@
-let sampleData = [
+export const sampleData = [
   {
     id: 1,
     name: "John Doe",
@@ -121,20 +121,4 @@ let sampleData = [
   },
 ];
 
-export const getData = (param,paramType) => {
-  let data = [];
 
-  sampleData.filter((val, index) => {
-    if (Array.isArray(param)) {
-      if (param.some((element) => val.skills.includes(element.value))) {
-        return (data = [...data, val]);
-      }
-    } else {
-      if (param === val[paramType]) {
-        return (data = [...data, val]);
-      }
-    }
-  });
-  return data;
-};
-//console.log(getData([{ value: "Django" }, { value: "Bootstrap" }]));

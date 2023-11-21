@@ -1,5 +1,5 @@
 import express from "express";
-import { getData } from "./dataModel.js";
+import { getData } from "./dataController.js";
 const app = express();
 const PORT = 3000;
 
@@ -36,7 +36,7 @@ let queryValue;
 let queryType
 app.post("/dsep/search", (req, res) => {
   // console.log(req.body.message.intent.item, "body");
-  if (req.body?.message?.intent?.item?.tags[0]?.list) {
+  if (req.body?.message?.intent?.item?.tags) {
     queryValue = req.body.message.intent.item.tags[0].list;
     queryType='array'
   }
